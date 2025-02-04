@@ -102,7 +102,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   meta = {
-    homepage = "https://tmux.github.io/";
+    homepage = "https://github.com/tmux/tmux";
     description = "Terminal multiplexer";
     longDescription = ''
       tmux is intended to be a modern, BSD-licensed alternative to programs such as GNU screen. Major features include:

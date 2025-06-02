@@ -28,7 +28,7 @@ let
       pyopenssl = super.pyopenssl.overridePythonAttrs (old: rec {
         version = "24.2.1";
         src = old.src.override {
-          tag = version;
+          rev = "refs/tags/${version}";
           hash = "sha256-otK7Y7Kb/l3QOErhAcuDHB/CKG9l1vH2BTnOieAWNc0=";
         };
       });

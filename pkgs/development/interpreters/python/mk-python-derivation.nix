@@ -428,6 +428,7 @@ let
         # default to python's platforms
         platforms = python.meta.platforms;
         isBuildPythonPackage = python.meta.platforms;
+        identifiers.purlParts = attrs.src.meta.identifiers.purlParts or { };
       }
       // meta;
     }

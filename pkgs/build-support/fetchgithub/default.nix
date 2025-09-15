@@ -56,20 +56,21 @@ lib.makeOverridable (
         )
 
         (
-          (lib.optionalAttrs (githubBase == "github.com") {
-            identifiers.purlParts = {
-              type = "github";
-              # https://github.com/package-url/purl-spec/blob/main/PURL-TYPES.rst#github
-              spec = "${owner}/${repo}@${(lib.revOrTag rev tag)}";
-            };
-          })
-          // (lib.optionalAttrs (githubBase != "github.com") {
-            identifiers.purlParts = {
-              type = "generic";
-              # https://github.com/package-url/purl-spec/blob/main/PURL-TYPES.rst#generic
-              spec = "${repo}?vcs_url=https://${githubBase}/${owner}/${repo}@${(lib.revOrTag rev tag)}";
-            };
-          })
+          {
+            identifiers.purlParts =
+              if githubBase == "github.com" then
+                {
+                  type = "github";
+                  # https://github.com/package-url/purl-spec/blob/main/PURL-TYPES.rst#github
+                  spec = "${owner}/${repo}@${(lib.revOrTag rev tag)}";
+                }
+              else
+                {
+                  type = "generic";
+                  # https://github.com/package-url/purl-spec/blob/main/PURL-TYPES.rst#generic
+                  spec = "${repo}?vcs_url=https://${githubBase}/${owner}/${repo}@${(lib.revOrTag rev tag)}";
+                };
+          }
         );
 
     passthruAttrs = removeAttrs args [

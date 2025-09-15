@@ -328,8 +328,8 @@ A readonly attribute containing the list of guesses for what CPE for this packag
 
 This attribute contains an attribute set of all parts of the pURL for this package.
 
-* `type` mandatory [type](https://github.com/package-url/purl-spec/blob/main/PURL-TYPES.rst) which needs to be provided
-* `spec` specify the pURL in accordance with the [purl-spec](https://github.com/package-url/purl-spec/blob/main/PURL-SPECIFICATION.rst)
+* `type` mandatory [type](https://github.com/package-url/purl-spec/blob/main/docs/standard/types.md) which needs to be provided
+* `spec` specify the pURL in accordance with the [purl-spec](https://github.com/package-url/purl-spec/blob/main/purl-specification.md)
 
 #### `meta.identifiers.purl` {#var-meta-identifiers-purl}
 

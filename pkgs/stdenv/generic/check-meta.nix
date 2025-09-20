@@ -714,7 +714,7 @@ let
           purlParts = attrs.meta.identifiers.purlParts or { };
           purl =
             attrs.meta.identifiers.purl or (
-              if purlParts.type != null && purlParts.spec != null then
+              if purlParts ? type && purlParts ? spec then
                 "pkg:${purlParts.type}/${purlParts.spec}"
               else
                 null

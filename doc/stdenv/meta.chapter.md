@@ -337,4 +337,4 @@ A readonly attribute which is built based on purlParts. It is the main identifie
 
 #### `meta.identifiers.purls` {#var-meta-identifiers-purls}
 
-A readonly attribute list which defaults to mainPURL. It can get enhanced through additional package URL's by maintainers and may provide an interface for additional identifiers or vendored dependencies inside mkDerivation.src. Identifiers different to the src identifier are not recommended by default as they might diverge (e.g. differences between source distribution pkg:github and binary distribution pkg:pypi).
+A readonly attribute list which defaults to a single main package URL element. It can get enhanced through additional package URL's by maintainers and may provide an interface for additional identifiers or vendored dependencies inside mkDerivation.src. Identifiers different to the src identifier are not recommended by default as they might diverge (e.g. differences between source distribution pkg:github and binary distribution pkg:pypi).

@@ -322,7 +322,7 @@ A readonly attribute containing the list of guesses for what CPE for this packag
 
 ### Package URL {#sec-meta-identifiers-purl}
 
-[Package URL](https://github.com/package-url/purl-spec) (pURL) is a specification to reliably identify and locate software packages.
+[Package URL](https://github.com/package-url/purl-spec) (pURL) is a specification to reliably identify and locate software packages. Through identification of software packages, additional (non-major) use cases are e.g. software license cross-verification via third party databases or initial vulnerability response management. Package URL's default to the mkDerivation.src, as the original consumed software package is the single point of truth.
 
 #### `meta.identifiers.purlParts` {#var-meta-identifiers-purlParts}
 
@@ -331,6 +331,10 @@ This attribute contains an attribute set of all parts of the pURL for this packa
 * `type` mandatory [type](https://github.com/package-url/purl-spec/blob/18fd3e395dda53c00bc8b11fe481666dc7b3807a/docs/standard/summary.md) which needs to be provided
 * `spec` specify the pURL in accordance with the [purl-spec](https://github.com/package-url/purl-spec/blob/18fd3e395dda53c00bc8b11fe481666dc7b3807a/purl-specification.md)
 
-#### `meta.identifiers.purl` {#var-meta-identifiers-purl}
+#### `meta.identifiers.pURL` {#var-meta-identifiers-purl}
 
-A readonly attribute which is built based on purlParts.
+A readonly attribute which is built based on purlParts. It is the main identifier, consumers should consider using the purls list interface to be prepared for edge cases.
+
+#### `meta.identifiers.purls` {#var-meta-identifiers-purls}
+
+A readonly attribute list which defaults to mainPURL. It can get enhanced through additional package URL's by maintainers and may provide an interface for additional identifiers or vendored dependencies inside mkDerivation.src. Identifiers different to the src identifier are not recommended by default as they might diverge (e.g. differences between source distribution pkg:github and binary distribution pkg:pypi).

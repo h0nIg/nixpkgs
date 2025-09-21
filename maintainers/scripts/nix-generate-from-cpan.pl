@@ -468,6 +468,10 @@ print <<EOF if $opt->maintainer;
       maintainers = [ maintainers.${\$opt->maintainer} ];
 EOF
 print <<EOF;
+      identifiers.purlParts = {
+        type = "cpan";
+        spec = "${\$module->author->cpanid}/\${pname}@\${version}";
+      };
     };
   };
 EOF

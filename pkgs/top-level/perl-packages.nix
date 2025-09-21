@@ -264,7 +264,7 @@ with self;
     };
   };
 
-  AlgorithmCheckDigits = buildPerlModule {
+  AlgorithmCheckDigits = buildPerlModule rec {
     pname = "Algorithm-CheckDigits";
     version = "1.3.6";
     src = fetchurl {
@@ -350,7 +350,7 @@ with self;
     };
   };
 
-  AlienBaseModuleBuild = buildPerlModule {
+  AlienBaseModuleBuild = buildPerlModule rec {
     pname = "Alien-Base-ModuleBuild";
     version = "1.17";
     src = fetchurl {
@@ -510,7 +510,7 @@ with self;
     };
   };
 
-  AlienLibGumbo = buildPerlModule {
+  AlienLibGumbo = buildPerlModule rec {
     pname = "Alien-LibGumbo";
     version = "0.05";
     src = fetchurl {
@@ -573,7 +573,7 @@ with self;
     };
   };
 
-  aliased = buildPerlModule {
+  aliased = buildPerlModule rec {
     pname = "aliased";
     version = "0.34";
     src = fetchurl {
@@ -615,7 +615,7 @@ with self;
     };
   };
 
-  AlienSDL = buildPerlModule {
+  AlienSDL = buildPerlModule rec {
     pname = "Alien-SDL";
     version = "1.446";
     src = fetchurl {
@@ -652,7 +652,7 @@ with self;
     };
   };
 
-  AlienTidyp = buildPerlModule {
+  AlienTidyp = buildPerlModule rec {
     pname = "Alien-Tidyp";
     version = "1.4.7";
     src = fetchurl {
@@ -676,7 +676,7 @@ with self;
     };
   };
 
-  AlienWxWidgets = buildPerlModule {
+  AlienWxWidgets = buildPerlModule rec {
     pname = "Alien-wxWidgets";
     version = "0.69";
     src = fetchurl {
@@ -871,7 +871,7 @@ with self;
     };
   };
 
-  AnyEventCacheDNS = buildPerlModule {
+  AnyEventCacheDNS = buildPerlModule rec {
     pname = "AnyEvent-CacheDNS";
     version = "0.08";
     src = fetchurl {
@@ -1144,7 +1144,7 @@ with self;
     };
   };
 
-  ApacheLogFormatCompiler = buildPerlModule {
+  ApacheLogFormatCompiler = buildPerlModule rec {
     pname = "Apache-LogFormat-Compiler";
     version = "0.36";
     src = fetchurl {
@@ -1176,7 +1176,7 @@ with self;
     };
   };
 
-  ApacheSession = buildPerlModule {
+  ApacheSession = buildPerlModule rec {
     pname = "Apache-Session";
     version = "1.94";
     src = fetchurl {
@@ -1246,7 +1246,7 @@ with self;
     };
   };
 
-  AppClusterSSH = buildPerlModule {
+  AppClusterSSH = buildPerlModule rec {
     pname = "App-ClusterSSH";
     version = "4.16";
     src = fetchurl {
@@ -1399,7 +1399,7 @@ with self;
     };
   };
 
-  Appcpm = buildPerlModule {
+  Appcpm = buildPerlModule rec {
     pname = "App-cpm";
     version = "0.997018";
     src = fetchurl {
@@ -1557,7 +1557,7 @@ with self;
     };
   };
 
-  Appperlbrew = buildPerlModule {
+  Appperlbrew = buildPerlModule rec {
     pname = "App-perlbrew";
     version = "1.00";
     src = fetchurl {
@@ -1622,7 +1622,7 @@ with self;
     };
   };
 
-  AppSqitch = buildPerlModule {
+  AppSqitch = buildPerlModule rec {
     version = "1.5.2";
     pname = "App-Sqitch";
     src = fetchurl {
@@ -1824,7 +1824,7 @@ with self;
     };
   };
 
-  ArrayCompare = buildPerlModule {
+  ArrayCompare = buildPerlModule rec {
     pname = "Array-Compare";
     version = "3.0.8";
     src = fetchurl {
@@ -2086,7 +2086,7 @@ with self;
     };
   };
 
-  AstroFITSHeader = buildPerlModule {
+  AstroFITSHeader = buildPerlModule rec {
     pname = "Astro-FITS-Header";
     version = "3.09";
     src = fetchurl {
@@ -2163,7 +2163,7 @@ with self;
     };
   };
 
-  AuthenDecHpwd = buildPerlModule {
+  AuthenDecHpwd = buildPerlModule rec {
     pname = "Authen-DecHpwd";
     version = "2.007";
     src = fetchurl {
@@ -2215,7 +2215,7 @@ with self;
     };
   };
 
-  AuthenKrb5 = buildPerlModule {
+  AuthenKrb5 = buildPerlModule rec {
     pname = "Authen-Krb5";
     version = "1.906";
     src = fetchurl {
@@ -2335,7 +2335,7 @@ with self;
     };
   };
 
-  AuthenPassphrase = buildPerlModule {
+  AuthenPassphrase = buildPerlModule rec {
     pname = "Authen-Passphrase";
     version = "0.008";
     src = fetchurl {
@@ -2419,7 +2419,7 @@ with self;
     };
   };
 
-  AuthenSASLSASLprep = buildPerlModule {
+  AuthenSASLSASLprep = buildPerlModule rec {
     pname = "Authen-SASL-SASLprep";
     version = "1.100";
     src = fetchurl {
@@ -2513,7 +2513,7 @@ with self;
     };
   };
 
-  AuthenSimplePasswd = buildPerlModule {
+  AuthenSimplePasswd = buildPerlModule rec {
     pname = "Authen-Simple-Passwd";
     version = "0.6";
     src = fetchurl {
@@ -2596,7 +2596,7 @@ with self;
     };
   };
 
-  AWSSignature4 = buildPerlModule {
+  AWSSignature4 = buildPerlModule rec {
     pname = "AWS-Signature4";
     version = "1.02";
     src = fetchurl {
@@ -2879,7 +2879,7 @@ with self;
 
   BioExtAlign = callPackage ../development/perl-modules/Bio-Ext-Align { };
 
-  BioDBHTS = buildPerlModule {
+  BioDBHTS = buildPerlModule rec {
     pname = "Bio-DB-HTS";
     version = "3.01";
     src = fetchurl {
@@ -3029,7 +3029,7 @@ with self;
     };
   };
 
-  BoostGeometryUtils = buildPerlModule {
+  BoostGeometryUtils = buildPerlModule rec {
     pname = "Boost-Geometry-Utils";
     version = "0.15";
     src = fetchurl {
@@ -3430,7 +3430,7 @@ with self;
     };
   };
 
-  CacheKyotoTycoon = buildPerlModule {
+  CacheKyotoTycoon = buildPerlModule rec {
     pname = "Cache-KyotoTycoon";
     version = "0.16";
     src = fetchurl {
@@ -3503,7 +3503,7 @@ with self;
     };
   };
 
-  CacheMemory = buildPerlModule {
+  CacheMemory = buildPerlModule rec {
     pname = "Cache";
     version = "2.11";
     src = fetchurl {
@@ -3624,7 +3624,7 @@ with self;
     };
   };
 
-  cam_pdf = buildPerlModule {
+  cam_pdf = buildPerlModule rec {
     pname = "CAM-PDF";
     version = "1.60";
     src = fetchurl {
@@ -3886,7 +3886,7 @@ with self;
     };
   };
 
-  CatalystAuthenticationCredentialHTTP = buildPerlModule {
+  CatalystAuthenticationCredentialHTTP = buildPerlModule rec {
     pname = "Catalyst-Authentication-Credential-HTTP";
     version = "1.018";
     src = fetchurl {
@@ -3927,7 +3927,7 @@ with self;
     };
   };
 
-  CatalystAuthenticationStoreHtpasswd = buildPerlModule {
+  CatalystAuthenticationStoreHtpasswd = buildPerlModule rec {
     pname = "Catalyst-Authentication-Store-Htpasswd";
     version = "1.006";
     src = fetchurl {
@@ -4088,7 +4088,7 @@ with self;
     };
   };
 
-  CatalystControllerPOD = buildPerlModule {
+  CatalystControllerPOD = buildPerlModule rec {
     pname = "Catalyst-Controller-POD";
     version = "1.0.0";
     src = fetchurl {
@@ -4156,7 +4156,7 @@ with self;
     };
   };
 
-  CatalystDispatchTypeRegex = buildPerlModule {
+  CatalystDispatchTypeRegex = buildPerlModule rec {
     pname = "Catalyst-DispatchType-Regex";
     version = "5.90035";
     src = fetchurl {
@@ -4541,7 +4541,7 @@ with self;
     };
   };
 
-  CatalystPluginLogHandler = buildPerlModule {
+  CatalystPluginLogHandler = buildPerlModule rec {
     pname = "Catalyst-Plugin-Log-Handler";
     version = "0.08";
     src = fetchurl {
@@ -5064,7 +5064,7 @@ with self;
     };
   };
 
-  Catmandu = buildPerlModule {
+  Catmandu = buildPerlModule rec {
     pname = "Catmandu";
     version = "1.2020";
     src = fetchurl {
@@ -5182,7 +5182,7 @@ with self;
     };
   };
 
-  CGICompile = buildPerlModule {
+  CGICompile = buildPerlModule rec {
     pname = "CGI-Compile";
     version = "0.26";
     src = fetchurl {
@@ -5330,7 +5330,7 @@ with self;
     };
   };
 
-  CGIMinimal = buildPerlModule {
+  CGIMinimal = buildPerlModule rec {
     pname = "CGI-Minimal";
     version = "1.30";
     src = fetchurl {
@@ -5369,7 +5369,7 @@ with self;
     };
   };
 
-  CGISession = buildPerlModule {
+  CGISession = buildPerlModule rec {
     pname = "CGI-Session";
     version = "4.48";
     src = fetchurl {
@@ -5598,7 +5598,7 @@ with self;
     };
   };
 
-  ClassAccessorChained = buildPerlModule {
+  ClassAccessorChained = buildPerlModule rec {
     pname = "Class-Accessor-Chained";
     version = "0.01";
     src = fetchurl {
@@ -5725,7 +5725,7 @@ with self;
     };
   };
 
-  ClassC3AdoptNEXT = buildPerlModule {
+  ClassC3AdoptNEXT = buildPerlModule rec {
     pname = "Class-C3-Adopt-NEXT";
     version = "0.14";
     src = fetchurl {
@@ -5798,7 +5798,7 @@ with self;
     };
   };
 
-  ClassContainer = buildPerlModule {
+  ClassContainer = buildPerlModule rec {
     pname = "Class-Container";
     version = "0.13";
     src = fetchurl {
@@ -5900,7 +5900,7 @@ with self;
     };
   };
 
-  ClassFactoryUtil = buildPerlModule {
+  ClassFactoryUtil = buildPerlModule rec {
     pname = "Class-Factory-Util";
     version = "1.7";
     src = fetchurl {
@@ -5920,7 +5920,7 @@ with self;
     };
   };
 
-  ClassGomor = buildPerlModule {
+  ClassGomor = buildPerlModule rec {
     pname = "Class-Gomor";
     version = "1.03";
     src = fetchurl {
@@ -6109,7 +6109,7 @@ with self;
     };
   };
 
-  ClassMix = buildPerlModule {
+  ClassMix = buildPerlModule rec {
     pname = "Class-Mix";
     version = "0.006";
     src = fetchurl {
@@ -6314,7 +6314,7 @@ with self;
     };
   };
 
-  ClassStd = buildPerlModule {
+  ClassStd = buildPerlModule rec {
     pname = "Class-Std";
     version = "0.013";
     src = fetchurl {
@@ -6334,7 +6334,7 @@ with self;
     };
   };
 
-  ClassStdFast = buildPerlModule {
+  ClassStdFast = buildPerlModule rec {
     pname = "Class-Std-Fast";
     version = "0.0.8";
     src = fetchurl {
@@ -6427,7 +6427,7 @@ with self;
     };
   };
 
-  CLDRNumber = buildPerlModule {
+  CLDRNumber = buildPerlModule rec {
     pname = "CLDR-Number";
     version = "0.19";
     src = fetchurl {
@@ -6489,7 +6489,7 @@ with self;
     };
   };
 
-  Clipboard = buildPerlModule {
+  Clipboard = buildPerlModule rec {
     pname = "Clipboard";
     version = "0.28";
     src = fetchurl {
@@ -6690,7 +6690,7 @@ with self;
     };
   };
 
-  CommandRunner = buildPerlModule {
+  CommandRunner = buildPerlModule rec {
     pname = "Command-Runner";
     version = "0.200";
     src = fetchurl {
@@ -6739,7 +6739,7 @@ with self;
     };
   };
 
-  CompilerLexer = buildPerlModule {
+  CompilerLexer = buildPerlModule rec {
     pname = "Compiler-Lexer";
     version = "0.23";
     src = fetchurl {
@@ -7240,7 +7240,7 @@ with self;
     };
   };
 
-  ConfigStd = buildPerlModule {
+  ConfigStd = buildPerlModule rec {
     pname = "Config-Std";
     version = "0.903";
     src = fetchurl {
@@ -7308,7 +7308,7 @@ with self;
     };
   };
 
-  Connector = buildPerlModule {
+  Connector = buildPerlModule rec {
     pname = "Connector";
     version = "1.53";
     src = fetchurl {
@@ -7357,7 +7357,7 @@ with self;
     };
   };
 
-  ConstFast = buildPerlModule {
+  ConstFast = buildPerlModule rec {
     pname = "Const-Fast";
     version = "0.014";
     src = fetchurl {
@@ -7465,7 +7465,7 @@ with self;
     };
   };
 
-  ConvertColor = buildPerlModule {
+  ConvertColor = buildPerlModule rec {
     pname = "Convert-Color";
     version = "0.17";
     src = fetchurl {
@@ -7510,7 +7510,7 @@ with self;
     };
   };
 
-  constantboolean = buildPerlModule {
+  constantboolean = buildPerlModule rec {
     pname = "constant-boolean";
     version = "0.02";
     src = fetchurl {
@@ -7592,7 +7592,7 @@ with self;
     };
   };
 
-  CookieBaker = buildPerlModule {
+  CookieBaker = buildPerlModule rec {
     pname = "Cookie-Baker";
     version = "0.11";
     src = fetchurl {
@@ -7852,7 +7852,7 @@ with self;
     };
   };
 
-  CPAN02PackagesSearch = buildPerlModule {
+  CPAN02PackagesSearch = buildPerlModule rec {
     pname = "CPAN-02Packages-Search";
     version = "0.100";
     src = fetchurl {
@@ -8070,7 +8070,7 @@ with self;
     };
   };
 
-  CryptArgon2 = buildPerlModule {
+  CryptArgon2 = buildPerlModule rec {
     pname = "Crypt-Argon2";
     version = "0.019";
     src = fetchurl {
@@ -8325,7 +8325,7 @@ with self;
     };
   };
 
-  CryptEksblowfish = buildPerlModule {
+  CryptEksblowfish = buildPerlModule rec {
     pname = "Crypt-Eksblowfish";
     version = "0.009";
     src = fetchurl {
@@ -8540,7 +8540,7 @@ with self;
     };
   };
 
-  CryptPKCS10 = buildPerlModule {
+  CryptPKCS10 = buildPerlModule rec {
     pname = "Crypt-PKCS10";
     version = "2.005";
     src = fetchurl {
@@ -8614,7 +8614,7 @@ with self;
     };
   };
 
-  CryptRandomSource = buildPerlModule {
+  CryptRandomSource = buildPerlModule rec {
     pname = "Crypt-Random-Source";
     version = "0.14";
     src = fetchurl {
@@ -8731,7 +8731,7 @@ with self;
     };
   };
 
-  CryptMySQL = buildPerlModule {
+  CryptMySQL = buildPerlModule rec {
     pname = "Crypt-MySQL";
     version = "0.04";
     src = fetchurl {
@@ -8810,7 +8810,7 @@ with self;
     };
   };
 
-  CryptScryptKDF = buildPerlModule {
+  CryptScryptKDF = buildPerlModule rec {
     pname = "Crypt-ScryptKDF";
     version = "0.010";
     src = fetchurl {
@@ -9435,7 +9435,7 @@ with self;
     };
   };
 
-  CwdGuard = buildPerlModule {
+  CwdGuard = buildPerlModule rec {
     pname = "Cwd-Guard";
     version = "0.05";
     src = fetchurl {
@@ -9552,7 +9552,7 @@ with self;
     };
   };
 
-  DataDumperAutoEncode = buildPerlModule {
+  DataDumperAutoEncode = buildPerlModule rec {
     pname = "Data-Dumper-AutoEncode";
     version = "1.00";
     src = fetchurl {
@@ -9622,7 +9622,7 @@ with self;
     };
   };
 
-  DataFloat = buildPerlModule {
+  DataFloat = buildPerlModule rec {
     pname = "Data-Float";
     version = "0.013";
     src = fetchurl {
@@ -9808,7 +9808,7 @@ with self;
     };
   };
 
-  DataInteger = buildPerlModule {
+  DataInteger = buildPerlModule rec {
     pname = "Data-Integer";
     version = "0.006";
     src = fetchurl {
@@ -9828,7 +9828,7 @@ with self;
     };
   };
 
-  DataMessagePack = buildPerlModule {
+  DataMessagePack = buildPerlModule rec {
     pname = "Data-MessagePack";
     version = "1.02";
     src = fetchurl {
@@ -9901,7 +9901,7 @@ with self;
     };
   };
 
-  DataPagePageset = buildPerlModule {
+  DataPagePageset = buildPerlModule rec {
     pname = "Data-Page-Pageset";
     version = "1.02";
     src = fetchurl {
@@ -10077,7 +10077,7 @@ with self;
     };
   };
 
-  DataSerializer = buildPerlModule {
+  DataSerializer = buildPerlModule rec {
     pname = "Data-Serializer";
     version = "0.65";
     src = fetchurl {
@@ -10277,7 +10277,7 @@ with self;
     };
   };
 
-  DataUtil = buildPerlModule {
+  DataUtil = buildPerlModule rec {
     pname = "Data-Util";
     version = "0.67";
     src = fetchurl {
@@ -10685,7 +10685,7 @@ with self;
     };
   };
 
-  DateTimeFormatDateParse = buildPerlModule {
+  DateTimeFormatDateParse = buildPerlModule rec {
     pname = "DateTime-Format-DateParse";
     version = "0.05";
     src = fetchurl {
@@ -10739,7 +10739,7 @@ with self;
     };
   };
 
-  DateTimeFormatHTTP = buildPerlModule {
+  DateTimeFormatHTTP = buildPerlModule rec {
     pname = "DateTime-Format-HTTP";
     version = "0.42";
     src = fetchurl {
@@ -10763,7 +10763,7 @@ with self;
     };
   };
 
-  DateTimeFormatICal = buildPerlModule {
+  DateTimeFormatICal = buildPerlModule rec {
     pname = "DateTime-Format-ICal";
     version = "0.09";
     src = fetchurl {
@@ -10831,7 +10831,7 @@ with self;
     };
   };
 
-  DateTimeFormatNatural = buildPerlModule {
+  DateTimeFormatNatural = buildPerlModule rec {
     pname = "DateTime-Format-Natural";
     version = "1.18";
     src = fetchurl {
@@ -10865,7 +10865,7 @@ with self;
     };
   };
 
-  DateTimeFormatMySQL = buildPerlModule {
+  DateTimeFormatMySQL = buildPerlModule rec {
     pname = "DateTime-Format-MySQL";
     version = "0.08";
     src = fetchurl {
@@ -10886,7 +10886,7 @@ with self;
     };
   };
 
-  DateTimeFormatPg = buildPerlModule {
+  DateTimeFormatPg = buildPerlModule rec {
     pname = "DateTime-Format-Pg";
     version = "0.16014";
     src = fetchurl {
@@ -11052,7 +11052,7 @@ with self;
     };
   };
 
-  DateTimeSet = buildPerlModule {
+  DateTimeSet = buildPerlModule rec {
     pname = "DateTime-Set";
     version = "0.3900";
     src = fetchurl {
@@ -11136,7 +11136,7 @@ with self;
     };
   };
 
-  DebugShowStuff = buildPerlModule {
+  DebugShowStuff = buildPerlModule rec {
     pname = "Debug-ShowStuff";
     version = "1.16";
     src = fetchurl {
@@ -11232,7 +11232,7 @@ with self;
     };
   };
 
-  DevelCheckCompiler = buildPerlModule {
+  DevelCheckCompiler = buildPerlModule rec {
     pname = "Devel-CheckCompiler";
     version = "0.07";
     src = fetchurl {
@@ -11397,7 +11397,7 @@ with self;
     };
   };
 
-  DevelRefcount = buildPerlModule {
+  DevelRefcount = buildPerlModule rec {
     pname = "Devel-Refcount";
     version = "0.10";
     src = fetchurl {
@@ -11540,7 +11540,7 @@ with self;
     };
   };
 
-  DBDMock = buildPerlModule {
+  DBDMock = buildPerlModule rec {
     pname = "DBD-Mock";
     version = "1.59";
     src = fetchurl {
@@ -12912,7 +12912,7 @@ with self;
     };
   };
 
-  DirManifest = buildPerlModule {
+  DirManifest = buildPerlModule rec {
     pname = "Dir-Manifest";
     version = "0.6.1";
     src = fetchurl {
@@ -13053,7 +13053,7 @@ with self;
     };
   };
 
-  DistZillaPluginBundleTestingMania = buildPerlModule {
+  DistZillaPluginBundleTestingMania = buildPerlModule rec {
     pname = "Dist-Zilla-PluginBundle-TestingMania";
     version = "0.25";
     src = fetchurl {
@@ -13270,7 +13270,7 @@ with self;
     };
   };
 
-  DistZillaPluginTestCPANMetaJSON = buildPerlModule {
+  DistZillaPluginTestCPANMetaJSON = buildPerlModule rec {
     pname = "Dist-Zilla-Plugin-Test-CPAN-Meta-JSON";
     version = "0.004";
     src = fetchurl {
@@ -13294,7 +13294,7 @@ with self;
     };
   };
 
-  DistZillaPluginTestCompile = buildPerlModule {
+  DistZillaPluginTestCompile = buildPerlModule rec {
     pname = "Dist-Zilla-Plugin-Test-Compile";
     version = "2.058";
     src = fetchurl {
@@ -13323,7 +13323,7 @@ with self;
     };
   };
 
-  DistZillaPluginTestDistManifest = buildPerlModule {
+  DistZillaPluginTestDistManifest = buildPerlModule rec {
     pname = "Dist-Zilla-Plugin-Test-DistManifest";
     version = "2.000006";
     src = fetchurl {
@@ -13351,7 +13351,7 @@ with self;
     };
   };
 
-  DistZillaPluginTestEOL = buildPerlModule {
+  DistZillaPluginTestEOL = buildPerlModule rec {
     pname = "Dist-Zilla-Plugin-Test-EOL";
     version = "0.19";
     src = fetchurl {
@@ -13379,7 +13379,7 @@ with self;
     };
   };
 
-  DistZillaPluginTestKwalitee = buildPerlModule {
+  DistZillaPluginTestKwalitee = buildPerlModule rec {
     pname = "Dist-Zilla-Plugin-Test-Kwalitee";
     version = "2.12";
     src = fetchurl {
@@ -13406,7 +13406,7 @@ with self;
     };
   };
 
-  DistZillaPluginTestMinimumVersion = buildPerlModule {
+  DistZillaPluginTestMinimumVersion = buildPerlModule rec {
     pname = "Dist-Zilla-Plugin-Test-MinimumVersion";
     version = "2.000010";
     src = fetchurl {
@@ -13433,7 +13433,7 @@ with self;
     };
   };
 
-  DistZillaPluginTestNoTabs = buildPerlModule {
+  DistZillaPluginTestNoTabs = buildPerlModule rec {
     pname = "Dist-Zilla-Plugin-Test-NoTabs";
     version = "0.15";
     src = fetchurl {
@@ -13461,7 +13461,7 @@ with self;
     };
   };
 
-  DistZillaPluginTestPerlCritic = buildPerlModule {
+  DistZillaPluginTestPerlCritic = buildPerlModule rec {
     pname = "Dist-Zilla-Plugin-Test-Perl-Critic";
     version = "3.001";
     src = fetchurl {
@@ -13511,7 +13511,7 @@ with self;
     };
   };
 
-  DistZillaPluginTestPortability = buildPerlModule {
+  DistZillaPluginTestPortability = buildPerlModule rec {
     pname = "Dist-Zilla-Plugin-Test-Portability";
     version = "2.001001";
     src = fetchurl {
@@ -13565,7 +13565,7 @@ with self;
     };
   };
 
-  DistZillaPluginTestUnusedVars = buildPerlModule {
+  DistZillaPluginTestUnusedVars = buildPerlModule rec {
     pname = "Dist-Zilla-Plugin-Test-UnusedVars";
     version = "2.001001";
     src = fetchurl {
@@ -13619,7 +13619,7 @@ with self;
     };
   };
 
-  DistZillaRoleFileWatcher = buildPerlModule {
+  DistZillaRoleFileWatcher = buildPerlModule rec {
     pname = "Dist-Zilla-Role-FileWatcher";
     version = "0.006";
     src = fetchurl {
@@ -13992,7 +13992,7 @@ with self;
     };
   };
 
-  EmailOutlookMessage = buildPerlModule {
+  EmailOutlookMessage = buildPerlModule rec {
     pname = "Email-Outlook-Message";
     version = "0.921";
     src = fetchurl {
@@ -14207,7 +14207,7 @@ with self;
     };
   };
 
-  EncodeDetect = buildPerlModule {
+  EncodeDetect = buildPerlModule rec {
     pname = "Encode-Detect";
     version = "1.01";
     src = fetchurl {
@@ -14485,7 +14485,7 @@ with self;
     };
   };
 
-  Error = buildPerlModule {
+  Error = buildPerlModule rec {
     pname = "Error";
     version = "0.17029";
     src = fetchurl {
@@ -14592,7 +14592,7 @@ with self;
     };
   };
 
-  ExceptionBase = buildPerlModule {
+  ExceptionBase = buildPerlModule rec {
     pname = "Exception-Base";
     version = "0.2501";
     src = fetchurl {
@@ -14640,7 +14640,7 @@ with self;
     };
   };
 
-  ExceptionDied = buildPerlModule {
+  ExceptionDied = buildPerlModule rec {
     pname = "Exception-Died";
     version = "0.06";
     src = fetchurl {
@@ -14668,7 +14668,7 @@ with self;
     };
   };
 
-  ExceptionWarning = buildPerlModule {
+  ExceptionWarning = buildPerlModule rec {
     pname = "Exception-Warning";
     version = "0.0401";
     src = fetchurl {
@@ -14693,7 +14693,7 @@ with self;
     };
   };
 
-  ExporterDeclare = buildPerlModule {
+  ExporterDeclare = buildPerlModule rec {
     pname = "Exporter-Declare";
     version = "0.114";
     src = fetchurl {
@@ -14805,7 +14805,7 @@ with self;
     };
   };
 
-  ExtUtilsCChecker = buildPerlModule {
+  ExtUtilsCChecker = buildPerlModule rec {
     pname = "ExtUtils-CChecker";
     version = "0.11";
     src = fetchurl {
@@ -14999,7 +14999,7 @@ with self;
     };
   };
 
-  ExtUtilsLibBuilder = buildPerlModule {
+  ExtUtilsLibBuilder = buildPerlModule rec {
     pname = "ExtUtils-LibBuilder";
     version = "0.08";
     src = fetchurl {
@@ -15125,7 +15125,7 @@ with self;
     };
   };
 
-  ExtUtilsTypemapsDefault = buildPerlModule {
+  ExtUtilsTypemapsDefault = buildPerlModule rec {
     pname = "ExtUtils-Typemaps-Default";
     version = "1.05";
     src = fetchurl {
@@ -15169,7 +15169,7 @@ with self;
     };
   };
 
-  ExtUtilsXSpp = buildPerlModule {
+  ExtUtilsXSpp = buildPerlModule rec {
     pname = "ExtUtils-XSpp";
     version = "0.18";
     src = fetchurl {
@@ -15194,7 +15194,7 @@ with self;
     };
   };
 
-  FatalException = buildPerlModule {
+  FatalException = buildPerlModule rec {
     pname = "Fatal-Exception";
     version = "0.05";
     src = fetchurl {
@@ -15241,7 +15241,7 @@ with self;
     };
   };
 
-  FCGIClient = buildPerlModule {
+  FCGIClient = buildPerlModule rec {
     pname = "FCGI-Client";
     version = "0.09";
     src = fetchurl {
@@ -15342,7 +15342,7 @@ with self;
     };
   };
 
-  FeatureCompatTry = buildPerlModule {
+  FeatureCompatTry = buildPerlModule rec {
     pname = "Feature-Compat-Try";
     version = "0.05";
     src = fetchurl {
@@ -15483,7 +15483,7 @@ with self;
     };
   };
 
-  FennecLite = buildPerlModule {
+  FennecLite = buildPerlModule rec {
     pname = "Fennec-Lite";
     version = "0.004";
     src = fetchurl {
@@ -15574,7 +15574,7 @@ with self;
     };
   };
 
-  FileBOM = buildPerlModule {
+  FileBOM = buildPerlModule rec {
     pname = "File-BOM";
     version = "0.18";
     src = fetchurl {
@@ -15800,7 +15800,7 @@ with self;
     };
   };
 
-  FileFindObject = buildPerlModule {
+  FileFindObject = buildPerlModule rec {
     pname = "File-Find-Object";
     version = "0.3.8";
     src = fetchurl {
@@ -15823,7 +15823,7 @@ with self;
     };
   };
 
-  FileFindObjectRule = buildPerlModule {
+  FileFindObjectRule = buildPerlModule rec {
     pname = "File-Find-Object-Rule";
     version = "0.0313";
     src = fetchurl {
@@ -16097,7 +16097,7 @@ with self;
     };
   };
 
-  Filelchown = buildPerlModule {
+  Filelchown = buildPerlModule rec {
     pname = "File-lchown";
     version = "0.02";
     src = fetchurl {
@@ -16234,7 +16234,7 @@ with self;
     };
   };
 
-  FileMap = buildPerlModule {
+  FileMap = buildPerlModule rec {
     pname = "File-Map";
     version = "0.71";
     src = fetchurl {
@@ -16408,7 +16408,7 @@ with self;
     };
   };
 
-  FileRemove = buildPerlModule {
+  FileRemove = buildPerlModule rec {
     pname = "File-Remove";
     version = "1.61";
     src = fetchurl {
@@ -16692,7 +16692,7 @@ with self;
     };
   };
 
-  FileTreeCreate = buildPerlModule {
+  FileTreeCreate = buildPerlModule rec {
     pname = "File-TreeCreate";
     version = "0.0.1";
     src = fetchurl {
@@ -16710,7 +16710,7 @@ with self;
     };
   };
 
-  FileType = buildPerlModule {
+  FileType = buildPerlModule rec {
     pname = "File-Type";
     version = "0.22";
     src = fetchurl {
@@ -16730,7 +16730,7 @@ with self;
     };
   };
 
-  FileUtil = buildPerlModule {
+  FileUtil = buildPerlModule rec {
     pname = "File-Util";
     version = "4.201720";
     src = fetchurl {
@@ -17078,7 +17078,7 @@ with self;
     };
   };
 
-  Furl = buildPerlModule {
+  Furl = buildPerlModule rec {
     pname = "Furl";
     version = "3.14";
     src = fetchurl {
@@ -17117,7 +17117,7 @@ with self;
     };
   };
 
-  Future = buildPerlModule {
+  Future = buildPerlModule rec {
     pname = "Future";
     version = "0.50";
     src = fetchurl {
@@ -17138,7 +17138,7 @@ with self;
     };
   };
 
-  FutureAsyncAwait = buildPerlModule {
+  FutureAsyncAwait = buildPerlModule rec {
     pname = "Future-AsyncAwait";
     version = "0.66";
     src = fetchurl {
@@ -17165,7 +17165,7 @@ with self;
     };
   };
 
-  FutureIO = buildPerlModule {
+  FutureIO = buildPerlModule rec {
     pname = "Future-IO";
     version = "0.14";
     src = fetchurl {
@@ -17192,7 +17192,7 @@ with self;
     };
   };
 
-  FutureQueue = buildPerlModule {
+  FutureQueue = buildPerlModule rec {
     pname = "Future-Queue";
     version = "0.51";
     src = fetchurl {
@@ -17214,7 +17214,7 @@ with self;
     };
   };
 
-  GamesSolitaireVerify = buildPerlModule {
+  GamesSolitaireVerify = buildPerlModule rec {
     pname = "Games-Solitaire-Verify";
     version = "0.2403";
     src = fetchurl {
@@ -18098,7 +18098,7 @@ with self;
     };
   };
 
-  GrowlGNTP = buildPerlModule {
+  GrowlGNTP = buildPerlModule rec {
     pname = "Growl-GNTP";
     version = "0.21";
     src = fetchurl {
@@ -18652,7 +18652,7 @@ with self;
     };
   };
 
-  HashSharedMem = buildPerlModule {
+  HashSharedMem = buildPerlModule rec {
     pname = "Hash-SharedMem";
     version = "0.005";
     src = fetchurl {
@@ -18675,7 +18675,7 @@ with self;
     };
   };
 
-  HashStoredIterator = buildPerlModule {
+  HashStoredIterator = buildPerlModule rec {
     pname = "Hash-StoredIterator";
     version = "0.008";
     src = fetchurl {
@@ -18800,7 +18800,7 @@ with self;
     };
   };
 
-  HTMLEscape = buildPerlModule {
+  HTMLEscape = buildPerlModule rec {
     pname = "HTML-Escape";
     version = "1.11";
     src = fetchurl {
@@ -18928,7 +18928,7 @@ with self;
     };
   };
 
-  HTMLFormatTextWithLinks = buildPerlModule {
+  HTMLFormatTextWithLinks = buildPerlModule rec {
     pname = "HTML-FormatText-WithLinks";
     version = "0.15";
     src = fetchurl {
@@ -19087,7 +19087,7 @@ with self;
     };
   };
 
-  HTMLGumbo = buildPerlModule {
+  HTMLGumbo = buildPerlModule rec {
     pname = "HTML-Gumbo";
     version = "0.18";
     src = fetchurl {
@@ -19188,7 +19188,7 @@ with self;
     };
   };
 
-  HTMLTagCloud = buildPerlModule {
+  HTMLTagCloud = buildPerlModule rec {
     pname = "HTML-TagCloud";
     version = "0.38";
     src = fetchurl {
@@ -19452,7 +19452,7 @@ with self;
     };
   };
 
-  HTMLTokeParserSimple = buildPerlModule {
+  HTMLTokeParserSimple = buildPerlModule rec {
     pname = "HTML-TokeParser-Simple";
     version = "3.16";
     src = fetchurl {
@@ -19476,7 +19476,7 @@ with self;
     };
   };
 
-  HTMLTree = buildPerlModule {
+  HTMLTree = buildPerlModule rec {
     pname = "HTML-Tree";
     version = "5.07";
     src = fetchurl {
@@ -19554,7 +19554,7 @@ with self;
     };
   };
 
-  HTTPAcceptLanguage = buildPerlModule {
+  HTTPAcceptLanguage = buildPerlModule rec {
     pname = "HTTP-AcceptLanguage";
     version = "0.02";
     src = fetchurl {
@@ -19695,7 +19695,7 @@ with self;
     };
   };
 
-  HTTPEntityParser = buildPerlModule {
+  HTTPEntityParser = buildPerlModule rec {
     pname = "HTTP-Entity-Parser";
     version = "0.25";
     src = fetchurl {
@@ -19803,7 +19803,7 @@ with self;
     };
   };
 
-  HTTPHeadersFast = buildPerlModule {
+  HTTPHeadersFast = buildPerlModule rec {
     pname = "HTTP-Headers-Fast";
     version = "0.22";
     src = fetchurl {
@@ -20545,7 +20545,7 @@ with self;
     };
   };
 
-  IOAsync = buildPerlModule {
+  IOAsync = buildPerlModule rec {
     pname = "IO-Async";
     version = "0.802";
     src = fetchurl {
@@ -20577,7 +20577,7 @@ with self;
     };
   };
 
-  IOAsyncSSL = buildPerlModule {
+  IOAsyncSSL = buildPerlModule rec {
     pname = "IO-Async-SSL";
     version = "0.25";
     src = fetchurl {
@@ -20714,7 +20714,7 @@ with self;
     };
   };
 
-  IOHandleUtil = buildPerlModule {
+  IOHandleUtil = buildPerlModule rec {
     pname = "IO-Handle-Util";
     version = "0.02";
     src = fetchurl {
@@ -20744,7 +20744,7 @@ with self;
     };
   };
 
-  IOInterface = buildPerlModule {
+  IOInterface = buildPerlModule rec {
     pname = "IO-Interface";
     version = "1.09";
     src = fetchurl {
@@ -20866,7 +20866,7 @@ with self;
     };
   };
 
-  IOPrompt = buildPerlModule {
+  IOPrompt = buildPerlModule rec {
     pname = "IO-Prompt";
     version = "0.997004";
     src = fetchurl {
@@ -20915,7 +20915,7 @@ with self;
     };
   };
 
-  IOSocketINET6 = buildPerlModule {
+  IOSocketINET6 = buildPerlModule rec {
     pname = "IO-Socket-INET6";
     version = "2.73";
     src = fetchurl {
@@ -20985,7 +20985,7 @@ with self;
     };
   };
 
-  IOSocketTimeout = buildPerlModule {
+  IOSocketTimeout = buildPerlModule rec {
     pname = "IO-Socket-Timeout";
     version = "0.32";
     src = fetchurl {
@@ -21051,7 +21051,7 @@ with self;
     };
   };
 
-  IOStty = buildPerlModule {
+  IOStty = buildPerlModule rec {
     pname = "IO-Stty";
     version = "0.04";
     src = fetchurl {
@@ -21525,7 +21525,7 @@ with self;
     };
   };
 
-  JavaScriptValueEscape = buildPerlModule {
+  JavaScriptValueEscape = buildPerlModule rec {
     pname = "JavaScript-Value-Escape";
     version = "0.07";
     src = fetchurl {
@@ -21729,7 +21729,7 @@ with self;
     };
   };
 
-  JSONWebToken = buildPerlModule {
+  JSONWebToken = buildPerlModule rec {
     pname = "JSON-WebToken";
     version = "0.10";
     src = fetchurl {
@@ -21969,7 +21969,7 @@ with self;
     };
   };
 
-  LexicalSealRequireHints = buildPerlModule {
+  LexicalSealRequireHints = buildPerlModule rec {
     pname = "Lexical-SealRequireHints";
     version = "0.012";
     src = fetchurl {
@@ -22350,7 +22350,7 @@ with self;
     };
   };
 
-  LinguaStem = buildPerlModule {
+  LinguaStem = buildPerlModule rec {
     pname = "Lingua-Stem";
     version = "2.31";
     src = fetchurl {
@@ -22525,7 +22525,7 @@ with self;
     };
   };
 
-  LinuxDesktopFiles = buildPerlModule {
+  LinuxDesktopFiles = buildPerlModule rec {
     pname = "Linux-DesktopFiles";
     version = "0.25";
     src = fetchurl {
@@ -22543,7 +22543,7 @@ with self;
     };
   };
 
-  LinuxDistribution = buildPerlModule {
+  LinuxDistribution = buildPerlModule rec {
     pname = "Linux-Distribution";
     version = "0.23";
     src = fetchurl {
@@ -22567,7 +22567,7 @@ with self;
     };
   };
 
-  LinuxFD = buildPerlModule {
+  LinuxFD = buildPerlModule rec {
     pname = "Linux-FD";
     version = "0.014";
     src = fetchurl {
@@ -22764,7 +22764,7 @@ with self;
     };
   };
 
-  ListUtilsBy = buildPerlModule {
+  ListUtilsBy = buildPerlModule rec {
     pname = "List-UtilsBy";
     version = "0.12";
     src = fetchurl {
@@ -23356,7 +23356,7 @@ with self;
     };
   };
 
-  LogHandler = buildPerlModule {
+  LogHandler = buildPerlModule rec {
     pname = "Log-Handler";
     version = "0.90";
     src = fetchurl {
@@ -23531,7 +23531,7 @@ with self;
     };
   };
 
-  LogJournald = buildPerlModule {
+  LogJournald = buildPerlModule rec {
     pname = "Log-Journald";
     version = "0.30";
     src = fetchurl {
@@ -23783,7 +23783,7 @@ with self;
     };
   };
 
-  LWPUserAgentDNSHosts = buildPerlModule {
+  LWPUserAgentDNSHosts = buildPerlModule rec {
     pname = "LWP-UserAgent-DNS-Hosts";
     version = "0.14";
     src = fetchurl {
@@ -23836,7 +23836,7 @@ with self;
     };
   };
 
-  LWPUserAgentMockable = buildPerlModule {
+  LWPUserAgentMockable = buildPerlModule rec {
     pname = "LWP-UserAgent-Mockable";
     version = "1.18";
     src = fetchurl {
@@ -24533,7 +24533,7 @@ with self;
     };
   };
 
-  MathClipper = buildPerlModule {
+  MathClipper = buildPerlModule rec {
     pname = "Math-Clipper";
     version = "1.29";
     src = fetchurl {
@@ -25038,7 +25038,7 @@ with self;
     };
   };
 
-  MaxMindDBReaderXS = buildPerlModule {
+  MaxMindDBReaderXS = buildPerlModule rec {
     pname = "MaxMind-DB-Reader-XS";
     version = "1.000009";
     src = fetchurl {
@@ -25068,7 +25068,7 @@ with self;
     };
   };
 
-  MaxMindDBWriter = buildPerlModule {
+  MaxMindDBWriter = buildPerlModule rec {
     pname = "MaxMind-DB-Writer";
     version = "0.300003";
     src = fetchurl {
@@ -25254,7 +25254,7 @@ with self;
     };
   };
 
-  meta = buildPerlModule {
+  meta = buildPerlModule rec {
     pname = "meta";
     version = "0.012";
     src = fetchurl {
@@ -25276,7 +25276,7 @@ with self;
     };
   };
 
-  MetaBuilder = buildPerlModule {
+  MetaBuilder = buildPerlModule rec {
     pname = "Meta-Builder";
     version = "0.004";
     src = fetchurl {
@@ -25365,7 +25365,7 @@ with self;
     };
   };
 
-  MetricsAny = buildPerlModule {
+  MetricsAny = buildPerlModule rec {
     pname = "Metrics-Any";
     version = "0.10";
     src = fetchurl {
@@ -25590,7 +25590,7 @@ with self;
     };
   };
 
-  MinionBackendRedis = buildPerlModule {
+  MinionBackendRedis = buildPerlModule rec {
     pname = "Minion-Backend-Redis";
     version = "0.003";
     src = fetchurl {
@@ -25616,7 +25616,7 @@ with self;
     };
   };
 
-  MinionBackendSQLite = buildPerlModule {
+  MinionBackendSQLite = buildPerlModule rec {
     pname = "Minion-Backend-SQLite";
     version = "5.0.7";
     src = fetchurl {
@@ -25692,7 +25692,7 @@ with self;
     };
   };
 
-  MLDBM = buildPerlModule {
+  MLDBM = buildPerlModule rec {
     pname = "MLDBM";
     version = "2.05";
     src = fetchurl {
@@ -25778,7 +25778,7 @@ with self;
     };
   };
 
-  Modulecpmfile = buildPerlModule {
+  Modulecpmfile = buildPerlModule rec {
     pname = "Module-cpmfile";
     version = "0.006";
     src = fetchurl {
@@ -25841,7 +25841,7 @@ with self;
     };
   };
 
-  ModuleBuildDeprecated = buildPerlModule {
+  ModuleBuildDeprecated = buildPerlModule rec {
     pname = "Module-Build-Deprecated";
     version = "0.4210";
     src = fetchurl {
@@ -25862,7 +25862,7 @@ with self;
     };
   };
 
-  ModuleBuildPluggable = buildPerlModule {
+  ModuleBuildPluggable = buildPerlModule rec {
     pname = "Module-Build-Pluggable";
     version = "0.10";
     src = fetchurl {
@@ -25889,7 +25889,7 @@ with self;
     };
   };
 
-  ModuleBuildPluggableCPANfile = buildPerlModule {
+  ModuleBuildPluggableCPANfile = buildPerlModule rec {
     pname = "Module-Build-Pluggable-CPANfile";
     version = "0.05";
     src = fetchurl {
@@ -25919,7 +25919,7 @@ with self;
     };
   };
 
-  ModuleBuildPluggablePPPort = buildPerlModule {
+  ModuleBuildPluggablePPPort = buildPerlModule rec {
     pname = "Module-Build-Pluggable-PPPort";
     version = "0.04";
     src = fetchurl {
@@ -25944,7 +25944,7 @@ with self;
     };
   };
 
-  ModuleBuildTiny = buildPerlModule {
+  ModuleBuildTiny = buildPerlModule rec {
     pname = "Module-Build-Tiny";
     version = "0.047";
     src = fetchurl {
@@ -25969,7 +25969,7 @@ with self;
     };
   };
 
-  ModuleBuildWithXSpp = buildPerlModule {
+  ModuleBuildWithXSpp = buildPerlModule rec {
     pname = "Module-Build-WithXSpp";
     version = "0.14";
     src = fetchurl {
@@ -25993,7 +25993,7 @@ with self;
     };
   };
 
-  ModuleBuildXSUtil = buildPerlModule {
+  ModuleBuildXSUtil = buildPerlModule rec {
     pname = "Module-Build-XSUtil";
     version = "0.19";
     src = fetchurl {
@@ -26103,7 +26103,7 @@ with self;
     };
   };
 
-  ModuleExtractUse = buildPerlModule {
+  ModuleExtractUse = buildPerlModule rec {
     pname = "Module-ExtractUse";
     version = "0.345";
     src = fetchurl {
@@ -26529,7 +26529,7 @@ with self;
     };
   };
 
-  ModuleRuntime = buildPerlModule {
+  ModuleRuntime = buildPerlModule rec {
     pname = "Module-Runtime";
     version = "0.016";
     src = fetchurl {
@@ -26616,7 +26616,7 @@ with self;
     };
   };
 
-  ModuleUtil = buildPerlModule {
+  ModuleUtil = buildPerlModule rec {
     pname = "Module-Util";
     version = "1.09";
     src = fetchurl {
@@ -26789,7 +26789,7 @@ with self;
     };
   };
 
-  MojoliciousPluginI18N = buildPerlModule {
+  MojoliciousPluginI18N = buildPerlModule rec {
     pname = "Mojolicious-Plugin-I18N";
     version = "1.6";
     src = fetchurl {
@@ -26811,7 +26811,7 @@ with self;
     };
   };
 
-  MojoliciousPluginMail = buildPerlModule {
+  MojoliciousPluginMail = buildPerlModule rec {
     pname = "Mojolicious-Plugin-Mail";
     version = "1.5";
     src = fetchurl {
@@ -26930,7 +26930,7 @@ with self;
     };
   };
 
-  MojoliciousPluginTemplateToolkit = buildPerlModule {
+  MojoliciousPluginTemplateToolkit = buildPerlModule rec {
     pname = "Mojolicious-Plugin-TemplateToolkit";
     version = "0.006";
     src = fetchurl {
@@ -27021,7 +27021,7 @@ with self;
     };
   };
 
-  MojoSAML = buildPerlModule {
+  MojoSAML = buildPerlModule rec {
     pname = "Mojo-SAML";
     version = "0.07";
     src = fetchurl {
@@ -27050,7 +27050,7 @@ with self;
     };
   };
 
-  MojoSQLite = buildPerlModule {
+  MojoSQLite = buildPerlModule rec {
     pname = "Mojo-SQLite";
     version = "3.009";
     src = fetchurl {
@@ -27102,7 +27102,7 @@ with self;
     };
   };
 
-  MojoIOLoopDelay = buildPerlModule {
+  MojoIOLoopDelay = buildPerlModule rec {
     pname = "Mojo-IOLoop-Delay";
     version = "8.76";
     src = fetchurl {
@@ -27123,7 +27123,7 @@ with self;
     };
   };
 
-  MojoIOLoopForkCall = buildPerlModule {
+  MojoIOLoopForkCall = buildPerlModule rec {
     pname = "Mojo-IOLoop-ForkCall";
     version = "0.21";
     src = fetchurl {
@@ -27155,7 +27155,7 @@ with self;
     };
   };
 
-  MojoJWT = buildPerlModule {
+  MojoJWT = buildPerlModule rec {
     pname = "Mojo-JWT";
     version = "0.09";
     src = fetchurl {
@@ -27518,7 +27518,7 @@ with self;
     };
   };
 
-  MooXSingleton = buildPerlModule {
+  MooXSingleton = buildPerlModule rec {
     pname = "MooX-Singleton";
     version = "1.20";
     src = fetchurl {
@@ -27643,7 +27643,7 @@ with self;
     };
   };
 
-  MooseAutobox = buildPerlModule {
+  MooseAutobox = buildPerlModule rec {
     pname = "Moose-Autobox";
     version = "0.16";
     src = fetchurl {
@@ -27720,7 +27720,7 @@ with self;
     };
   };
 
-  MooseXAppCmd = buildPerlModule {
+  MooseXAppCmd = buildPerlModule rec {
     pname = "MooseX-App-Cmd";
     version = "0.34";
     src = fetchurl {
@@ -27946,7 +27946,7 @@ with self;
     };
   };
 
-  TestPostgreSQL = buildPerlModule {
+  TestPostgreSQL = buildPerlModule rec {
     pname = "Test-PostgreSQL";
     version = "1.29";
     src = fetchurl {
@@ -28098,7 +28098,7 @@ with self;
     };
   };
 
-  MouseXGetopt = buildPerlModule {
+  MouseXGetopt = buildPerlModule rec {
     pname = "MouseX-Getopt";
     version = "0.38";
     src = fetchurl {
@@ -28134,7 +28134,7 @@ with self;
     };
   };
 
-  MooseXAttributeChained = buildPerlModule {
+  MooseXAttributeChained = buildPerlModule rec {
     pname = "MooseX-Attribute-Chained";
     version = "1.0.3";
     src = fetchurl {
@@ -28155,7 +28155,7 @@ with self;
     };
   };
 
-  MooseXAttributeHelpers = buildPerlModule {
+  MooseXAttributeHelpers = buildPerlModule rec {
     pname = "MooseX-AttributeHelpers";
     version = "0.25";
     src = fetchurl {
@@ -28181,7 +28181,7 @@ with self;
     };
   };
 
-  MooseXClone = buildPerlModule {
+  MooseXClone = buildPerlModule rec {
     pname = "MooseX-Clone";
     version = "0.06";
     src = fetchurl {
@@ -28207,7 +28207,7 @@ with self;
     };
   };
 
-  MooseXConfigFromFile = buildPerlModule {
+  MooseXConfigFromFile = buildPerlModule rec {
     pname = "MooseX-ConfigFromFile";
     version = "0.14";
     src = fetchurl {
@@ -28236,7 +28236,7 @@ with self;
     };
   };
 
-  MooseXDaemonize = buildPerlModule {
+  MooseXDaemonize = buildPerlModule rec {
     pname = "MooseX-Daemonize";
     version = "0.22";
     src = fetchurl {
@@ -28291,7 +28291,7 @@ with self;
     };
   };
 
-  MooseXGetopt = buildPerlModule {
+  MooseXGetopt = buildPerlModule rec {
     pname = "MooseX-Getopt";
     version = "0.76";
     src = fetchurl {
@@ -28387,7 +28387,7 @@ with self;
     };
   };
 
-  MooseXLazyRequire = buildPerlModule {
+  MooseXLazyRequire = buildPerlModule rec {
     pname = "MooseX-LazyRequire";
     version = "0.11";
     src = fetchurl {
@@ -28564,7 +28564,7 @@ with self;
     };
   };
 
-  MooseXRoleParameterized = buildPerlModule {
+  MooseXRoleParameterized = buildPerlModule rec {
     pname = "MooseX-Role-Parameterized";
     version = "1.11";
     src = fetchurl {
@@ -28621,7 +28621,7 @@ with self;
     };
   };
 
-  MooseXRunnable = buildPerlModule {
+  MooseXRunnable = buildPerlModule rec {
     pname = "MooseX-Runnable";
     version = "0.10";
     src = fetchurl {
@@ -28693,7 +28693,7 @@ with self;
     };
   };
 
-  MooseXSingleton = buildPerlModule {
+  MooseXSingleton = buildPerlModule rec {
     pname = "MooseX-Singleton";
     version = "0.30";
     src = fetchurl {
@@ -28796,7 +28796,7 @@ with self;
     };
   };
 
-  MooseXTraits = buildPerlModule {
+  MooseXTraits = buildPerlModule rec {
     pname = "MooseX-Traits";
     version = "0.13";
     src = fetchurl {
@@ -28854,7 +28854,7 @@ with self;
     };
   };
 
-  MooseXTypes = buildPerlModule {
+  MooseXTypes = buildPerlModule rec {
     pname = "MooseX-Types";
     version = "0.50";
     src = fetchurl {
@@ -28886,7 +28886,7 @@ with self;
     };
   };
 
-  MooseXTypesCommon = buildPerlModule {
+  MooseXTypesCommon = buildPerlModule rec {
     pname = "MooseX-Types-Common";
     version = "0.001014";
     src = fetchurl {
@@ -28913,7 +28913,7 @@ with self;
     };
   };
 
-  MooseXTypesDateTime = buildPerlModule {
+  MooseXTypesDateTime = buildPerlModule rec {
     pname = "MooseX-Types-DateTime";
     version = "0.13";
     src = fetchurl {
@@ -28943,7 +28943,7 @@ with self;
     };
   };
 
-  MooseXTypesDateTimeMoreCoercions = buildPerlModule {
+  MooseXTypesDateTimeMoreCoercions = buildPerlModule rec {
     pname = "MooseX-Types-DateTime-MoreCoercions";
     version = "0.15";
     src = fetchurl {
@@ -28974,7 +28974,7 @@ with self;
     };
   };
 
-  MooseXTypesLoadableClass = buildPerlModule {
+  MooseXTypesLoadableClass = buildPerlModule rec {
     pname = "MooseX-Types-LoadableClass";
     version = "0.015";
     src = fetchurl {
@@ -29000,7 +29000,7 @@ with self;
     };
   };
 
-  MooseXTypesPathClass = buildPerlModule {
+  MooseXTypesPathClass = buildPerlModule rec {
     pname = "MooseX-Types-Path-Class";
     version = "0.09";
     src = fetchurl {
@@ -29028,7 +29028,7 @@ with self;
     };
   };
 
-  MooseXTypesPathTiny = buildPerlModule {
+  MooseXTypesPathTiny = buildPerlModule rec {
     pname = "MooseX-Types-Path-Tiny";
     version = "0.012";
     src = fetchurl {
@@ -29097,7 +29097,7 @@ with self;
     };
   };
 
-  MooseXTypesStructured = buildPerlModule {
+  MooseXTypesStructured = buildPerlModule rec {
     pname = "MooseX-Types-Structured";
     version = "0.36";
     src = fetchurl {
@@ -29129,7 +29129,7 @@ with self;
     };
   };
 
-  MooseXTypesURI = buildPerlModule {
+  MooseXTypesURI = buildPerlModule rec {
     pname = "MooseX-Types-URI";
     version = "0.09";
     src = fetchurl {
@@ -29225,7 +29225,7 @@ with self;
     };
   };
 
-  MockMonkeyPatch = buildPerlModule {
+  MockMonkeyPatch = buildPerlModule rec {
     pname = "Mock-MonkeyPatch";
     version = "1.02";
     src = fetchurl {
@@ -29246,7 +29246,7 @@ with self;
     };
   };
 
-  Mouse = buildPerlModule {
+  Mouse = buildPerlModule rec {
     pname = "Mouse";
     version = "2.5.10";
     src = fetchurl {
@@ -29399,7 +29399,7 @@ with self;
     };
   };
 
-  MusicBrainz = buildPerlModule {
+  MusicBrainz = buildPerlModule rec {
     pname = "WebService-MusicBrainz";
     version = "1.0.6";
     src = fetchurl {
@@ -29688,7 +29688,7 @@ with self;
     };
   };
 
-  NetAmazonMechanicalTurk = buildPerlModule {
+  NetAmazonMechanicalTurk = buildPerlModule rec {
     pname = "Net-Amazon-MechanicalTurk";
     version = "1.02";
     src = fetchurl {
@@ -29759,7 +29759,7 @@ with self;
     };
   };
 
-  NetAmazonS3Policy = buildPerlModule {
+  NetAmazonS3Policy = buildPerlModule rec {
     pname = "Net-Amazon-S3-Policy";
     version = "0.1.6";
     src = fetchurl {
@@ -29780,7 +29780,7 @@ with self;
     };
   };
 
-  NetAsyncHTTP = buildPerlModule {
+  NetAsyncHTTP = buildPerlModule rec {
     pname = "Net-Async-HTTP";
     version = "0.49";
     src = fetchurl {
@@ -29819,7 +29819,7 @@ with self;
     };
   };
 
-  NetAsyncHTTPServer = buildPerlModule {
+  NetAsyncHTTPServer = buildPerlModule rec {
     pname = "Net-Async-HTTP-Server";
     version = "0.14";
     src = fetchurl {
@@ -29879,7 +29879,7 @@ with self;
     };
   };
 
-  NetAsyncWebSocket = buildPerlModule {
+  NetAsyncWebSocket = buildPerlModule rec {
     pname = "Net-Async-WebSocket";
     version = "0.14";
     src = fetchurl {
@@ -29912,7 +29912,7 @@ with self;
     };
   };
 
-  NetAMQP = buildPerlModule {
+  NetAMQP = buildPerlModule rec {
     pname = "Net-AMQP";
     version = "0.06";
     src = fetchurl {
@@ -30165,7 +30165,7 @@ with self;
     };
   };
 
-  NetFrame = buildPerlModule {
+  NetFrame = buildPerlModule rec {
     pname = "Net-Frame";
     version = "1.21";
     src = fetchurl {
@@ -30188,7 +30188,7 @@ with self;
     };
   };
 
-  NetFrameLayerIPv6 = buildPerlModule {
+  NetFrameLayerIPv6 = buildPerlModule rec {
     pname = "Net-Frame-Layer-IPv6";
     version = "1.08";
     src = fetchurl {
@@ -30290,7 +30290,7 @@ with self;
     };
   };
 
-  NetIDNEncode = buildPerlModule {
+  NetIDNEncode = buildPerlModule rec {
     pname = "Net-IDN-Encode";
     version = "2.500";
     src = fetchurl {
@@ -30527,7 +30527,7 @@ with self;
     };
   };
 
-  NetLibIDN2 = buildPerlModule {
+  NetLibIDN2 = buildPerlModule rec {
     pname = "Net-LibIDN2";
     version = "1.02";
     src = fetchurl {
@@ -30574,7 +30574,7 @@ with self;
     };
   };
 
-  NetMPD = buildPerlModule {
+  NetMPD = buildPerlModule rec {
     pname = "Net-MPD";
     version = "0.07";
     buildInputs = [ ModuleBuildTiny ];
@@ -30640,7 +30640,7 @@ with self;
     };
   };
 
-  NetOAuth = buildPerlModule {
+  NetOAuth = buildPerlModule rec {
     pname = "Net-OAuth";
     version = "0.28";
     src = fetchurl {
@@ -30731,7 +30731,7 @@ with self;
     };
   };
 
-  NetPrometheus = buildPerlModule {
+  NetPrometheus = buildPerlModule rec {
     pname = "Net-Prometheus";
     version = "0.12";
     src = fetchurl {
@@ -30957,7 +30957,7 @@ with self;
     };
   };
 
-  NetSNMP = buildPerlModule {
+  NetSNMP = buildPerlModule rec {
     pname = "Net-SNMP";
     version = "6.0.1";
     src = fetchurl {
@@ -31156,7 +31156,7 @@ with self;
     };
   };
 
-  NetTwitterLite = buildPerlModule {
+  NetTwitterLite = buildPerlModule rec {
     pname = "Net-Twitter-Lite";
     version = "0.12008";
     src = fetchurl {
@@ -31300,7 +31300,7 @@ with self;
     };
   };
 
-  NumberFraction = buildPerlModule {
+  NumberFraction = buildPerlModule rec {
     pname = "Number-Fraction";
     version = "3.0.4";
     src = fetchurl {
@@ -31324,7 +31324,7 @@ with self;
     };
   };
 
-  NumberMisc = buildPerlModule {
+  NumberMisc = buildPerlModule rec {
     pname = "Number-Misc";
     version = "1.2";
     src = fetchurl {
@@ -31477,7 +31477,7 @@ with self;
     };
   };
 
-  ObjectInsideOut = buildPerlModule {
+  ObjectInsideOut = buildPerlModule rec {
     pname = "Object-InsideOut";
     version = "4.05";
     src = fetchurl {
@@ -31498,7 +31498,7 @@ with self;
     };
   };
 
-  ObjectPad = buildPerlModule {
+  ObjectPad = buildPerlModule rec {
     pname = "Object-Pad";
     version = "0.809";
     src = fetchurl {
@@ -32060,7 +32060,7 @@ with self;
     };
   };
 
-  ParallelPipes = buildPerlModule {
+  ParallelPipes = buildPerlModule rec {
     pname = "Parallel-Pipes";
     version = "0.200";
     src = fetchurl {
@@ -32114,7 +32114,7 @@ with self;
     };
   };
 
-  ParamsClassify = buildPerlModule {
+  ParamsClassify = buildPerlModule rec {
     pname = "Params-Classify";
     version = "0.015";
     src = fetchurl {
@@ -32155,7 +32155,7 @@ with self;
     };
   };
 
-  ParamsValidate = buildPerlModule {
+  ParamsValidate = buildPerlModule rec {
     pname = "Params-Validate";
     version = "1.31";
     src = fetchurl {
@@ -32482,7 +32482,7 @@ with self;
     };
   };
 
-  ParseRecDescent = buildPerlModule {
+  ParseRecDescent = buildPerlModule rec {
     pname = "Parse-RecDescent";
     version = "1.967015";
     src = fetchurl {
@@ -32522,7 +32522,7 @@ with self;
     };
   };
 
-  ParserMGC = buildPerlModule {
+  ParserMGC = buildPerlModule rec {
     pname = "Parser-MGC";
     version = "0.21";
     src = fetchurl {
@@ -32565,7 +32565,7 @@ with self;
     };
   };
 
-  PathClass = buildPerlModule {
+  PathClass = buildPerlModule rec {
     pname = "Path-Class";
     version = "0.37";
     src = fetchurl {
@@ -32900,7 +32900,7 @@ with self;
     };
   };
 
-  PerlCritic = buildPerlModule {
+  PerlCritic = buildPerlModule rec {
     pname = "Perl-Critic";
     version = "1.150";
     src = fetchurl {
@@ -32944,7 +32944,7 @@ with self;
     };
   };
 
-  PerlCriticCommunity = buildPerlModule {
+  PerlCriticCommunity = buildPerlModule rec {
     pname = "Perl-Critic-Community";
     version = "1.0.3";
     src = fetchurl {
@@ -33059,7 +33059,7 @@ with self;
     };
   };
 
-  PerlIOLayers = buildPerlModule {
+  PerlIOLayers = buildPerlModule rec {
     pname = "PerlIO-Layers";
     version = "0.012";
     src = fetchurl {
@@ -33190,7 +33190,7 @@ with self;
     };
   };
 
-  PerlIOviaTimeout = buildPerlModule {
+  PerlIOviaTimeout = buildPerlModule rec {
     pname = "PerlIO-via-Timeout";
     version = "0.32";
     src = fetchurl {
@@ -33443,7 +33443,7 @@ with self;
     };
   };
 
-  PlackMiddlewareAuthDigest = buildPerlModule {
+  PlackMiddlewareAuthDigest = buildPerlModule rec {
     pname = "Plack-Middleware-Auth-Digest";
     version = "0.05";
     src = fetchurl {
@@ -33474,7 +33474,7 @@ with self;
     };
   };
 
-  PlackMiddlewareConsoleLogger = buildPerlModule {
+  PlackMiddlewareConsoleLogger = buildPerlModule rec {
     pname = "Plack-Middleware-ConsoleLogger";
     version = "0.05";
     src = fetchurl {
@@ -33503,7 +33503,7 @@ with self;
     };
   };
 
-  PlackMiddlewareDebug = buildPerlModule {
+  PlackMiddlewareDebug = buildPerlModule rec {
     pname = "Plack-Middleware-Debug";
     version = "0.18";
     src = fetchurl {
@@ -33672,7 +33672,7 @@ with self;
     };
   };
 
-  PlackMiddlewareSession = buildPerlModule {
+  PlackMiddlewareSession = buildPerlModule rec {
     pname = "Plack-Middleware-Session";
     version = "0.33";
     src = fetchurl {
@@ -33910,7 +33910,7 @@ with self;
     };
   };
 
-  PPIxQuoteLike = buildPerlModule {
+  PPIxQuoteLike = buildPerlModule rec {
     pname = "PPIx-QuoteLike";
     version = "0.023";
     src = fetchurl {
@@ -33934,7 +33934,7 @@ with self;
     };
   };
 
-  PPIxRegexp = buildPerlModule {
+  PPIxRegexp = buildPerlModule rec {
     pname = "PPIx-Regexp";
     version = "0.088";
     src = fetchurl {
@@ -33955,7 +33955,7 @@ with self;
     };
   };
 
-  PPIxUtilities = buildPerlModule {
+  PPIxUtilities = buildPerlModule rec {
     pname = "PPIx-Utilities";
     version = "1.001000";
     src = fetchurl {
@@ -34311,7 +34311,7 @@ with self;
     };
   };
 
-  ProtocolWebSocket = buildPerlModule {
+  ProtocolWebSocket = buildPerlModule rec {
     pname = "Protocol-WebSocket";
     version = "0.26";
     src = fetchurl {
@@ -34332,7 +34332,7 @@ with self;
     };
   };
 
-  ProtocolHTTP2 = buildPerlModule {
+  ProtocolHTTP2 = buildPerlModule rec {
     pname = "Protocol-HTTP2";
     version = "1.11";
     src = fetchurl {
@@ -34777,7 +34777,7 @@ with self;
     };
   };
 
-  PodSection = buildPerlModule {
+  PodSection = buildPerlModule rec {
     pname = "Pod-Section";
     version = "0.02";
     src = fetchurl {
@@ -34800,7 +34800,7 @@ with self;
     };
   };
 
-  PodLaTeX = buildPerlModule {
+  PodLaTeX = buildPerlModule rec {
     pname = "Pod-LaTeX";
     version = "0.61";
     src = fetchurl {
@@ -35034,7 +35034,7 @@ with self;
     };
   };
 
-  PodStrip = buildPerlModule {
+  PodStrip = buildPerlModule rec {
     pname = "Pod-Strip";
     version = "1.100";
     src = fetchurl {
@@ -35055,7 +35055,7 @@ with self;
     };
   };
 
-  PodTidy = buildPerlModule {
+  PodTidy = buildPerlModule rec {
     pname = "Pod-Tidy";
     version = "0.10";
     src = fetchurl {
@@ -35116,7 +35116,7 @@ with self;
     };
   };
 
-  PodWrap = buildPerlModule {
+  PodWrap = buildPerlModule rec {
     pname = "Pod-Wrap";
     version = "0.01";
     src = fetchurl {
@@ -35175,7 +35175,7 @@ with self;
     };
   };
 
-  POSIXstrftimeCompiler = buildPerlModule {
+  POSIXstrftimeCompiler = buildPerlModule rec {
     pname = "POSIX-strftime-Compiler";
     version = "0.44";
     src = fetchurl {
@@ -35202,7 +35202,7 @@ with self;
     };
   };
 
-  Apprainbarf = buildPerlModule {
+  Apprainbarf = buildPerlModule rec {
     pname = "App-rainbarf";
     version = "1.4";
     src = fetchurl {
@@ -35253,7 +35253,7 @@ with self;
     };
   };
 
-  Readonly = buildPerlModule {
+  Readonly = buildPerlModule rec {
     pname = "Readonly";
     version = "2.05";
     src = fetchurl {
@@ -35272,7 +35272,7 @@ with self;
     };
   };
 
-  ReadonlyX = buildPerlModule {
+  ReadonlyX = buildPerlModule rec {
     pname = "ReadonlyX";
     version = "1.04";
     src = fetchurl {
@@ -35315,7 +35315,7 @@ with self;
     };
   };
 
-  Redis = buildPerlModule {
+  Redis = buildPerlModule rec {
     pname = "Redis";
     version = "2.000";
     src = fetchurl {
@@ -35444,7 +35444,7 @@ with self;
     };
   };
 
-  RegexpGrammars = buildPerlModule {
+  RegexpGrammars = buildPerlModule rec {
     pname = "Regexp-Grammars";
     version = "1.058";
     src = fetchurl {
@@ -35547,7 +35547,7 @@ with self;
     };
   };
 
-  RESTUtils = buildPerlModule {
+  RESTUtils = buildPerlModule rec {
     pname = "REST-Utils";
     version = "0.6";
     src = fetchurl {
@@ -35639,7 +35639,7 @@ with self;
     };
   };
 
-  RoleBasic = buildPerlModule {
+  RoleBasic = buildPerlModule rec {
     pname = "Role-Basic";
     version = "0.13";
     src = fetchurl {
@@ -35749,7 +35749,7 @@ with self;
     };
   };
 
-  RPCEPCService = buildPerlModule {
+  RPCEPCService = buildPerlModule rec {
     pname = "RPC-EPC-Service";
     version = "0.0.11";
     src = fetchurl {
@@ -35773,7 +35773,7 @@ with self;
     };
   };
 
-  RPM2 = buildPerlModule {
+  RPM2 = buildPerlModule rec {
     pname = "RPM2";
     version = "1.4";
     src = fetchurl {
@@ -35819,7 +35819,7 @@ with self;
     };
   };
 
-  RTClientREST = buildPerlModule {
+  RTClientREST = buildPerlModule rec {
     pname = "RT-Client-REST";
     version = "0.72";
     src = fetchurl {
@@ -35891,7 +35891,7 @@ with self;
     };
   };
 
-  ScalarString = buildPerlModule {
+  ScalarString = buildPerlModule rec {
     pname = "Scalar-String";
     version = "0.003";
     src = fetchurl {
@@ -35935,7 +35935,7 @@ with self;
     };
   };
 
-  SCGI = buildPerlModule {
+  SCGI = buildPerlModule rec {
     pname = "SCGI";
     version = "0.6";
     src = fetchurl {
@@ -35997,7 +35997,7 @@ with self;
     };
   };
 
-  SDL = buildPerlModule {
+  SDL = buildPerlModule rec {
     pname = "SDL";
     version = "2.548";
     src = fetchurl {
@@ -36194,7 +36194,7 @@ with self;
     };
   };
 
-  ServerStarter = buildPerlModule {
+  ServerStarter = buildPerlModule rec {
     pname = "Server-Starter";
     version = "0.35";
     src = fetchurl {
@@ -36351,7 +36351,7 @@ with self;
     };
   };
 
-  SGMLSpm = buildPerlModule {
+  SGMLSpm = buildPerlModule rec {
     pname = "SGMLSpm";
     version = "1.1";
     src = fetchurl {
@@ -36390,7 +36390,7 @@ with self;
     };
   };
 
-  SnowballNorwegian = buildPerlModule {
+  SnowballNorwegian = buildPerlModule rec {
     pname = "Snowball-Norwegian";
     version = "1.2";
     src = fetchurl {
@@ -36411,7 +36411,7 @@ with self;
     };
   };
 
-  SnowballSwedish = buildPerlModule {
+  SnowballSwedish = buildPerlModule rec {
     pname = "Snowball-Swedish";
     version = "1.2";
     src = fetchurl {
@@ -37072,7 +37072,7 @@ with self;
     };
   };
 
-  Starman = buildPerlModule {
+  Starman = buildPerlModule rec {
     pname = "Starman";
     version = "0.4017";
     src = fetchurl {
@@ -37172,7 +37172,7 @@ with self;
     };
   };
 
-  StatisticsDescriptive = buildPerlModule {
+  StatisticsDescriptive = buildPerlModule rec {
     pname = "Statistics-Descriptive";
     version = "3.0801";
     src = fetchurl {
@@ -37377,7 +37377,7 @@ with self;
     };
   };
 
-  StringDiff = buildPerlModule {
+  StringDiff = buildPerlModule rec {
     pname = "String-Diff";
     version = "0.07";
     src = fetchurl {
@@ -37581,7 +37581,7 @@ with self;
     };
   };
 
-  StringRandom = buildPerlModule {
+  StringRandom = buildPerlModule rec {
     pname = "String-Random";
     version = "0.32";
     src = fetchurl {
@@ -37804,7 +37804,7 @@ with self;
     };
   };
 
-  StringUtil = buildPerlModule {
+  StringUtil = buildPerlModule rec {
     pname = "String-Util";
     version = "1.34";
     src = fetchurl {
@@ -37828,7 +37828,7 @@ with self;
 
   strip-nondeterminism = callPackage ../development/perl-modules/strip-nondeterminism { };
 
-  StructDumb = buildPerlModule {
+  StructDumb = buildPerlModule rec {
     pname = "Struct-Dumb";
     version = "0.14";
     src = fetchurl {
@@ -38101,7 +38101,7 @@ with self;
     };
   };
 
-  SubStrictDecl = buildPerlModule {
+  SubStrictDecl = buildPerlModule rec {
     pname = "Sub-StrictDecl";
     version = "0.005";
     src = fetchurl {
@@ -38164,7 +38164,7 @@ with self;
     };
   };
 
-  SafeHole = buildPerlModule {
+  SafeHole = buildPerlModule rec {
     pname = "Safe-Hole";
     version = "0.14";
     src = fetchurl {
@@ -38282,7 +38282,7 @@ with self;
     };
   };
 
-  SymbolUtil = buildPerlModule {
+  SymbolUtil = buildPerlModule rec {
     pname = "Symbol-Util";
     version = "0.0203";
     src = fetchurl {
@@ -38350,7 +38350,7 @@ with self;
     };
   };
 
-  SyntaxKeywordTry = buildPerlModule {
+  SyntaxKeywordTry = buildPerlModule rec {
     pname = "Syntax-Keyword-Try";
     version = "0.29";
     src = fetchurl {
@@ -38442,7 +38442,7 @@ with self;
     };
   };
 
-  SysCpuAffinity = buildPerlModule {
+  SysCpuAffinity = buildPerlModule rec {
     pname = "Sys-CpuAffinity";
     version = "1.12";
     src = fetchurl {
@@ -38580,7 +38580,7 @@ with self;
     };
   };
 
-  TAPParserSourceHandlerpgTAP = buildPerlModule {
+  TAPParserSourceHandlerpgTAP = buildPerlModule rec {
     pname = "TAP-Parser-SourceHandler-pgTAP";
     version = "3.36";
     src = fetchurl {
@@ -38635,7 +38635,7 @@ with self;
     };
   };
 
-  TaskFreecellSolverTesting = buildPerlModule {
+  TaskFreecellSolverTesting = buildPerlModule rec {
     pname = "Task-FreecellSolver-Testing";
     version = "0.0.12";
     src = fetchurl {
@@ -38675,7 +38675,7 @@ with self;
     };
   };
 
-  TaskPlack = buildPerlModule {
+  TaskPlack = buildPerlModule rec {
     pname = "Task-Plack";
     version = "0.28";
     src = fetchurl {
@@ -38723,7 +38723,7 @@ with self;
     };
   };
 
-  TaskTestRunAllPlugins = buildPerlModule {
+  TaskTestRunAllPlugins = buildPerlModule rec {
     pname = "Task-Test-Run-AllPlugins";
     version = "0.0106";
     src = fetchurl {
@@ -39267,7 +39267,7 @@ with self;
     };
   };
 
-  TermShell = buildPerlModule {
+  TermShell = buildPerlModule rec {
     pname = "Term-Shell";
     version = "0.13";
     src = fetchurl {
@@ -39690,7 +39690,7 @@ with self;
     };
   };
 
-  TestAssert = buildPerlModule {
+  TestAssert = buildPerlModule rec {
     pname = "Test-Assert";
     version = "0.0504";
     src = fetchurl {
@@ -39736,7 +39736,7 @@ with self;
     };
   };
 
-  TestAggregate = buildPerlModule {
+  TestAggregate = buildPerlModule rec {
     pname = "Test-Aggregate";
     version = "0.375";
     src = fetchurl {
@@ -39854,7 +39854,7 @@ with self;
     };
   };
 
-  TestClassMost = buildPerlModule {
+  TestClassMost = buildPerlModule rec {
     pname = "Test-Class-Most";
     version = "0.08";
     src = fetchurl {
@@ -39940,7 +39940,7 @@ with self;
     };
   };
 
-  TestCommand = buildPerlModule {
+  TestCommand = buildPerlModule rec {
     pname = "Test-Command";
     version = "0.11";
     src = fetchurl {
@@ -39961,7 +39961,7 @@ with self;
     };
   };
 
-  TestCompile = buildPerlModule {
+  TestCompile = buildPerlModule rec {
     pname = "Test-Compile";
     version = "3.3.1";
     src = fetchurl {
@@ -40017,7 +40017,7 @@ with self;
     };
   };
 
-  TestDataSplit = buildPerlModule {
+  TestDataSplit = buildPerlModule rec {
     pname = "Test-Data-Split";
     version = "0.2.2";
     src = fetchurl {
@@ -40063,7 +40063,7 @@ with self;
     };
   };
 
-  TestDeepJSON = buildPerlModule {
+  TestDeepJSON = buildPerlModule rec {
     pname = "Test-Deep-JSON";
     version = "0.05";
     src = fetchurl {
@@ -40182,7 +40182,7 @@ with self;
     };
   };
 
-  TestDistManifest = buildPerlModule {
+  TestDistManifest = buildPerlModule rec {
     pname = "Test-DistManifest";
     version = "1.014";
     src = fetchurl {
@@ -40311,7 +40311,7 @@ with self;
     };
   };
 
-  TestFakeHTTPD = buildPerlModule {
+  TestFakeHTTPD = buildPerlModule rec {
     pname = "Test-Fake-HTTPD";
     version = "0.09";
     src = fetchurl {
@@ -40453,7 +40453,7 @@ with self;
     };
   };
 
-  TestFork = buildPerlModule {
+  TestFork = buildPerlModule rec {
     pname = "Test-Fork";
     version = "0.02";
     src = fetchurl {
@@ -40473,7 +40473,7 @@ with self;
     };
   };
 
-  TestFutureIOImpl = buildPerlModule {
+  TestFutureIOImpl = buildPerlModule rec {
     pname = "Test-Future-IO-Impl";
     version = "0.14";
     src = fetchurl {
@@ -40494,7 +40494,7 @@ with self;
     };
   };
 
-  TestHarnessStraps = buildPerlModule {
+  TestHarnessStraps = buildPerlModule rec {
     pname = "Test-Harness-Straps";
     version = "0.30";
     src = fetchurl {
@@ -40542,7 +40542,7 @@ with self;
     };
   };
 
-  TestHexString = buildPerlModule {
+  TestHexString = buildPerlModule rec {
     pname = "Test-HexString";
     version = "0.03";
     src = fetchurl {
@@ -40562,7 +40562,7 @@ with self;
     };
   };
 
-  TestIdentity = buildPerlModule {
+  TestIdentity = buildPerlModule rec {
     pname = "Test-Identity";
     version = "0.01";
     src = fetchurl {
@@ -40603,7 +40603,7 @@ with self;
     };
   };
 
-  TestJSON = buildPerlModule {
+  TestJSON = buildPerlModule rec {
     pname = "Test-JSON";
     version = "0.11";
     src = fetchurl {
@@ -40794,7 +40794,7 @@ with self;
     };
   };
 
-  TestMemoryGrowth = buildPerlModule {
+  TestMemoryGrowth = buildPerlModule rec {
     pname = "Test-MemoryGrowth";
     version = "0.04";
     src = fetchurl {
@@ -40815,7 +40815,7 @@ with self;
     };
   };
 
-  TestMetricsAny = buildPerlModule {
+  TestMetricsAny = buildPerlModule rec {
     pname = "Test-Metrics-Any";
     version = "0.01";
     src = fetchurl {
@@ -40836,7 +40836,7 @@ with self;
     };
   };
 
-  TestMockClass = buildPerlModule {
+  TestMockClass = buildPerlModule rec {
     pname = "Test-Mock-Class";
     version = "0.0303";
     src = fetchurl {
@@ -40863,7 +40863,7 @@ with self;
     };
   };
 
-  TestMockGuard = buildPerlModule {
+  TestMockGuard = buildPerlModule rec {
     pname = "Test-Mock-Guard";
     version = "0.10";
     src = fetchurl {
@@ -40910,7 +40910,7 @@ with self;
     };
   };
 
-  TestMockModule = buildPerlModule {
+  TestMockModule = buildPerlModule rec {
     pname = "Test-MockModule";
     version = "0.177.0";
     src = fetchurl {
@@ -40932,7 +40932,7 @@ with self;
     };
   };
 
-  SUPER = buildPerlModule {
+  SUPER = buildPerlModule rec {
     pname = "SUPER";
     version = "1.20190531";
     src = fetchurl {
@@ -41001,7 +41001,7 @@ with self;
     };
   };
 
-  TestMockTimeHiRes = buildPerlModule {
+  TestMockTimeHiRes = buildPerlModule rec {
     pname = "Test-MockTime-HiRes";
     version = "0.08";
     src = fetchurl {
@@ -41098,7 +41098,7 @@ with self;
     };
   };
 
-  Testmysqld = buildPerlModule {
+  Testmysqld = buildPerlModule rec {
     pname = "Test-mysqld";
     version = "1.0013";
     src = fetchurl {
@@ -41255,7 +41255,7 @@ with self;
     };
   };
 
-  TestPerlCritic = buildPerlModule {
+  TestPerlCritic = buildPerlModule rec {
     pname = "Test-Perl-Critic";
     version = "1.04";
     src = fetchurl {
@@ -41279,7 +41279,7 @@ with self;
     };
   };
 
-  TestPerlTidy = buildPerlModule {
+  TestPerlTidy = buildPerlModule rec {
     pname = "Test-PerlTidy";
     version = "20230226";
     src = fetchurl {
@@ -41345,7 +41345,7 @@ with self;
     };
   };
 
-  TestPodLinkCheck = buildPerlModule {
+  TestPodLinkCheck = buildPerlModule rec {
     pname = "Test-Pod-LinkCheck";
     version = "0.008";
     src = fetchurl {
@@ -41375,7 +41375,7 @@ with self;
     };
   };
 
-  TestPodNo404s = buildPerlModule {
+  TestPodNo404s = buildPerlModule rec {
     pname = "Test-Pod-No404s";
     version = "0.02";
     src = fetchurl {
@@ -41424,7 +41424,7 @@ with self;
     };
   };
 
-  TestRefcount = buildPerlModule {
+  TestRefcount = buildPerlModule rec {
     pname = "Test-Refcount";
     version = "0.10";
     src = fetchurl {
@@ -41561,7 +41561,7 @@ with self;
     };
   };
 
-  TestRun = buildPerlModule {
+  TestRun = buildPerlModule rec {
     pname = "Test-Run";
     version = "0.0305";
     src = fetchurl {
@@ -41587,7 +41587,7 @@ with self;
     };
   };
 
-  TestRunCmdLine = buildPerlModule {
+  TestRunCmdLine = buildPerlModule rec {
     pname = "Test-Run-CmdLine";
     version = "0.0132";
     src = fetchurl {
@@ -41616,7 +41616,7 @@ with self;
     };
   };
 
-  TestRunPluginAlternateInterpreters = buildPerlModule {
+  TestRunPluginAlternateInterpreters = buildPerlModule rec {
     pname = "Test-Run-Plugin-AlternateInterpreters";
     version = "0.0125";
     src = fetchurl {
@@ -41641,7 +41641,7 @@ with self;
     };
   };
 
-  TestRunPluginBreakOnFailure = buildPerlModule {
+  TestRunPluginBreakOnFailure = buildPerlModule rec {
     pname = "Test-Run-Plugin-BreakOnFailure";
     version = "0.0.6";
     src = fetchurl {
@@ -41666,7 +41666,7 @@ with self;
     };
   };
 
-  TestRunPluginColorFileVerdicts = buildPerlModule {
+  TestRunPluginColorFileVerdicts = buildPerlModule rec {
     pname = "Test-Run-Plugin-ColorFileVerdicts";
     version = "0.0125";
     src = fetchurl {
@@ -41692,7 +41692,7 @@ with self;
     };
   };
 
-  TestRunPluginColorSummary = buildPerlModule {
+  TestRunPluginColorSummary = buildPerlModule rec {
     pname = "Test-Run-Plugin-ColorSummary";
     version = "0.0203";
     src = fetchurl {
@@ -41717,7 +41717,7 @@ with self;
     };
   };
 
-  TestRunPluginTrimDisplayedFilenames = buildPerlModule {
+  TestRunPluginTrimDisplayedFilenames = buildPerlModule rec {
     pname = "Test-Run-Plugin-TrimDisplayedFilenames";
     version = "0.0126";
     src = fetchurl {
@@ -41742,7 +41742,7 @@ with self;
     };
   };
 
-  TestRunValgrind = buildPerlModule {
+  TestRunValgrind = buildPerlModule rec {
     pname = "Test-RunValgrind";
     version = "0.2.2";
     src = fetchurl {
@@ -42052,7 +42052,7 @@ with self;
     };
   };
 
-  TestToolbox = buildPerlModule {
+  TestToolbox = buildPerlModule rec {
     pname = "Test-Toolbox";
     version = "0.4";
     src = fetchurl {
@@ -42072,7 +42072,7 @@ with self;
     };
   };
 
-  TestTrailingSpace = buildPerlModule {
+  TestTrailingSpace = buildPerlModule rec {
     pname = "Test-TrailingSpace";
     version = "0.0601";
     src = fetchurl {
@@ -42092,7 +42092,7 @@ with self;
     };
   };
 
-  TestUnitLite = buildPerlModule {
+  TestUnitLite = buildPerlModule rec {
     pname = "Test-Unit-Lite";
     version = "0.1202";
     src = fetchurl {
@@ -42350,7 +42350,7 @@ with self;
     };
   };
 
-  TextAligner = buildPerlModule {
+  TextAligner = buildPerlModule rec {
     pname = "Text-Aligner";
     version = "0.16";
     src = fetchurl {
@@ -42434,7 +42434,7 @@ with self;
     };
   };
 
-  TextBibTeX = buildPerlModule {
+  TextBibTeX = buildPerlModule rec {
     pname = "Text-BibTeX";
     version = "0.89";
     buildInputs = [
@@ -42595,7 +42595,7 @@ with self;
     };
   };
 
-  TextFormat = buildPerlModule {
+  TextFormat = buildPerlModule rec {
     pname = "Text-Format";
     version = "0.62";
     src = fetchurl {
@@ -42909,7 +42909,7 @@ with self;
     };
   };
 
-  TextMarkdownHoedown = buildPerlModule {
+  TextMarkdownHoedown = buildPerlModule rec {
     pname = "Text-Markdown-Hoedown";
     version = "1.03";
     src = fetchurl {
@@ -43166,7 +43166,7 @@ with self;
     };
   };
 
-  TextReform = buildPerlModule {
+  TextReform = buildPerlModule rec {
     pname = "Text-Reform";
     version = "1.20";
     src = fetchurl {
@@ -43245,7 +43245,7 @@ with self;
     };
   };
 
-  TextSprintfNamed = buildPerlModule {
+  TextSprintfNamed = buildPerlModule rec {
     pname = "Text-Sprintf-Named";
     version = "0.0405";
     src = fetchurl {
@@ -43264,7 +43264,7 @@ with self;
     };
   };
 
-  TextTable = buildPerlModule {
+  TextTable = buildPerlModule rec {
     pname = "Text-Table";
     version = "1.135";
     src = fetchurl {
@@ -43324,7 +43324,7 @@ with self;
     };
   };
 
-  TestTrap = buildPerlModule {
+  TestTrap = buildPerlModule rec {
     pname = "Test-Trap";
     version = "0.3.5";
     src = fetchurl {
@@ -43345,7 +43345,7 @@ with self;
     };
   };
 
-  TestVars = buildPerlModule {
+  TestVars = buildPerlModule rec {
     pname = "Test-Vars";
     version = "0.015";
     src = fetchurl {
@@ -43519,7 +43519,7 @@ with self;
     };
   };
 
-  TextWikiFormat = buildPerlModule {
+  TextWikiFormat = buildPerlModule rec {
     pname = "Text-WikiFormat";
     version = "0.81";
     src = fetchurl {
@@ -43742,7 +43742,7 @@ with self;
     };
   };
 
-  TieIxHash = buildPerlModule {
+  TieIxHash = buildPerlModule rec {
     pname = "Tie-IxHash";
     version = "1.23";
     src = fetchurl {
@@ -44457,7 +44457,7 @@ with self;
     };
   };
 
-  UnicodeCaseFold = buildPerlModule {
+  UnicodeCaseFold = buildPerlModule rec {
     pname = "Unicode-CaseFold";
     version = "1.01";
     src = fetchurl {
@@ -44540,7 +44540,7 @@ with self;
     };
   };
 
-  UnicodeStringprep = buildPerlModule {
+  UnicodeStringprep = buildPerlModule rec {
     pname = "Unicode-Stringprep";
     version = "1.105";
     src = fetchurl {
@@ -44631,7 +44631,7 @@ with self;
     };
   };
 
-  URIdb = buildPerlModule {
+  URIdb = buildPerlModule rec {
     pname = "URI-db";
     version = "0.21";
     src = fetchurl {
@@ -44653,7 +44653,7 @@ with self;
     };
   };
 
-  URIFind = buildPerlModule {
+  URIFind = buildPerlModule rec {
     pname = "URI-Find";
     version = "20160806";
     src = fetchurl {
@@ -44763,7 +44763,7 @@ with self;
     };
   };
 
-  URINested = buildPerlModule {
+  URINested = buildPerlModule rec {
     pname = "URI-Nested";
     version = "0.10";
     src = fetchurl {
@@ -45020,7 +45020,7 @@ with self;
     };
   };
 
-  VMEC2 = buildPerlModule {
+  VMEC2 = buildPerlModule rec {
     pname = "VM-EC2";
     version = "1.28";
     src = fetchurl {
@@ -45159,7 +45159,7 @@ with self;
     };
   };
 
-  WWWFormUrlEncoded = buildPerlModule {
+  WWWFormUrlEncoded = buildPerlModule rec {
     pname = "WWW-Form-UrlEncoded";
     version = "0.26";
     src = fetchurl {
@@ -45635,7 +45635,7 @@ with self;
     };
   };
 
-  XMLDescent = buildPerlModule {
+  XMLDescent = buildPerlModule rec {
     pname = "XML-Descent";
     version = "1.04";
     src = fetchurl {
@@ -46117,7 +46117,7 @@ with self;
     };
   };
 
-  XMLRSS = buildPerlModule {
+  XMLRSS = buildPerlModule rec {
     pname = "XML-RSS";
     version = "1.62";
     src = fetchurl {
@@ -46143,7 +46143,7 @@ with self;
     };
   };
 
-  XMLRules = buildPerlModule {
+  XMLRules = buildPerlModule rec {
     pname = "XML-Rules";
     version = "1.16";
     src = fetchurl {
@@ -46265,7 +46265,7 @@ with self;
     };
   };
 
-  XMLSemanticDiff = buildPerlModule {
+  XMLSemanticDiff = buildPerlModule rec {
     pname = "XML-SemanticDiff";
     version = "1.0007";
     src = fetchurl {
@@ -46444,7 +46444,7 @@ with self;
     };
   };
 
-  XSParseKeyword = buildPerlModule {
+  XSParseKeyword = buildPerlModule rec {
     pname = "XS-Parse-Keyword";
     version = "0.46";
     src = fetchurl {
@@ -46470,7 +46470,7 @@ with self;
     };
   };
 
-  XSParseSublike = buildPerlModule {
+  XSParseSublike = buildPerlModule rec {
     pname = "XS-Parse-Sublike";
     version = "0.29";
     src = fetchurl {
@@ -46716,7 +46716,7 @@ with self;
     };
   };
 
-  WebScraper = buildPerlModule {
+  WebScraper = buildPerlModule rec {
     pname = "Web-Scraper";
     version = "0.38";
     src = fetchurl {
@@ -46754,7 +46754,7 @@ with self;
     };
   };
 
-  WebServiceLinode = buildPerlModule {
+  WebServiceLinode = buildPerlModule rec {
     pname = "WebService-Linode";
     version = "0.29";
     src = fetchurl {
@@ -46780,7 +46780,7 @@ with self;
     };
   };
 
-  WebServiceValidatorHTMLW3C = buildPerlModule {
+  WebServiceValidatorHTMLW3C = buildPerlModule rec {
     pname = "WebService-Validator-HTML-W3C";
     version = "0.28";
     src = fetchurl {

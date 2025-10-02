@@ -56,7 +56,7 @@ let
     ;
 
   mkDbExtraCommand =
-    contents:
+    { contents, includeNixDBHostSignatures ? false }:
     let
       contentsList = if builtins.isList contents then contents else [ contents ];
     in
@@ -73,9 +73,11 @@ let
       ${buildPackages.nix}/bin/nix-store --load-db < ${
         closureInfo { rootPaths = contentsList; }
       }/registration
-      # copy signatures from building system (-s "local?read-only=true") into "NIX_REMOTE=local?root=$PWD"
-      # readonly store is required to avoid write operations which might fail due to missing privileges
-      ${buildPackages.nix}/bin/nix store copy-sigs --all -s "local?read-only=true" --extra-experimental-features read-only-local-store
+      ${lib.optionalString includeNixDBHostSignatures ''
+        # copy signatures from building system (-s "local?read-only=true") into "NIX_REMOTE=local?root=$PWD"
+        # readonly store is required to avoid write operations which might fail due to missing privileges
+        ${buildPackages.nix}/bin/nix store copy-sigs --all -s "local?read-only=true" --extra-experimental-features read-only-local-store
+      ''}
       # Reset registration times to make the image reproducible
       ${buildPackages.sqlite}/bin/sqlite3 nix/var/nix/db/db.sqlite "UPDATE ValidPaths SET registrationTime = ''${SOURCE_DATE_EPOCH}"
 
@@ -642,6 +644,8 @@ rec {
       compressor ? "gz",
       # Populate the nix database in the image with the dependencies of `copyToRoot`.
       includeNixDB ? false,
+      # If signatures was present on the builder, it will get copied into the image
+      includeNixDBHostSignatures ? false,
       # Deprecated.
       contents ? null,
     }:
@@ -684,7 +688,7 @@ rec {
 
       # TODO: add the dependencies of the config json.
       extraCommandsWithDB =
-        if includeNixDB then (mkDbExtraCommand rootContents) + extraCommands else extraCommands;
+        if includeNixDB then (mkDbExtraCommand { contents = rootContents; inherit includeNixDBHostSignatures; }) + extraCommands else extraCommands;
 
       layer =
         if runAsRoot == null then
@@ -989,6 +993,17 @@ rec {
 
   buildLayeredImageWithNixDb = args: buildLayeredImage (args // { includeNixDB = true; });
 
+  # @h0nIg: This is somehow optional but nice to have, I think... 
+  buildImageWithNixDbAndHostSignatures = args: buildImage (args // {
+    includeNixDB = true;
+    includeNixDBHostSignatures = true;
+  });
+
+  buildLayeredImageWithNixDbAndHostSignatures = args: buildLayeredImage (args // {
+    includeNixDB = true;
+    includeNixDBHostSignatures = true;
+  });
+
   # Arguments are documented in ../../../doc/build-helpers/images/dockertools.section.md
   streamLayeredImage = lib.makeOverridable (
     {
@@ -1010,6 +1025,7 @@ rec {
       enableFakechroot ? false,
       includeStorePaths ? true,
       includeNixDB ? false,
+      includeNixDBHostSignatures ? false,
       passthru ? { },
       # Pipeline used to produce docker layers. If not set, popularity contest
       # algorithm is used. If set, maxLayers is ignored as the author of the
@@ -1062,7 +1078,7 @@ rec {
       customisationLayer = symlinkJoin {
         name = "${baseName}-customisation-layer";
         paths = contentsList;
-        extraCommands = (lib.optionalString includeNixDB (mkDbExtraCommand contents)) + extraCommands;
+        extraCommands = (lib.optionalString includeNixDB (mkDbExtraCommand { contents = contentsList; inherit includeNixDBHostSignatures; })) + extraCommands;
         inherit fakeRootCommands;
         nativeBuildInputs =
           [

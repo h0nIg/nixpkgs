@@ -202,6 +202,13 @@ Similarly, if you encounter errors similar to `Error_Protocol ("certificate has 
 
   _Default value:_ `false`.
 
+`includeNixDBHostSignatures` (Boolean; _optional_)
+
+: Copy the host builder's signatures for the Nix store paths into the image. The main purpose is to allow   
+  for signature verification inside the container. Requires includeNixDB to be true.
+
+  _Default value:_ `false`
+
 `contents` **DEPRECATED**
 
 : This attribute is deprecated, and users are encouraged to use `copyToRoot` instead.
@@ -634,6 +641,13 @@ This allows the function to produce reproducible images.
   :::
 
   _Default value:_ `false`.
+
+`includeNixDBHostSignatures` (Boolean; _optional_)
+
+: Copy the host builder's signatures for the Nix store paths into the image. The main purpose is to allow   
+  for signature verification inside the container. Requires includeNixDB to be true.
+
+  _Default value:_ `false`
 
 `passthru` (Attribute Set; _optional_)
 

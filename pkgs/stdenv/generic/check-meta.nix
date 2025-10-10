@@ -727,7 +727,7 @@ let
                 [ purl ]
               else
                 (attrs.src.meta.identifiers.purls
-                  or (builtins.filter (x: x != null) (map (x: x.meta.identifiers.purls or null) (attrs.srcs or [ ])))
+                  or (builtins.filter (purl: purl != null) (map (derivation: derivation.meta.identifiers.purls or null) (attrs.srcs or [ ])))
                 )
             );
 

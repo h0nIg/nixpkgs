@@ -714,7 +714,7 @@ let
           # search for a pURL in the following order:
           # - locally set
           # - src.meta.pURL
-          # - srcs[].meta.pURL
+          # - srcs[].meta.pURL (for pURLs only)
           purlParts = attrs.meta.identifiers.purlParts or { };
           purl =
             if purlParts ? type && purlParts ? spec then
@@ -727,7 +727,7 @@ let
                 [ purl ]
               else
                 (attrs.src.meta.identifiers.purls
-                  or (filter (x: x != null) (map (x: x.meta.identifiers.purls or null) (attrs.srcs or [ ])))
+                  or (builtins.filter (x: x != null) (map (x: x.meta.identifiers.purls or null) (attrs.srcs or [ ])))
                 )
             );
 

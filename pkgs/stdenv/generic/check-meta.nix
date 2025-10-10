@@ -34,6 +34,7 @@ let
     toList
     isList
     elem
+    flatten
     ;
 
   inherit (lib.meta)
@@ -727,7 +728,7 @@ let
                 [ purl ]
               else
                 (attrs.src.meta.identifiers.purls
-                  or (builtins.filter (purl: purl != null) (map (derivation: derivation.meta.identifiers.purls or null) (attrs.srcs or [ ])))
+                  or (builtins.filter (purl: purl != null) (map (derivation: derivation.meta.identifiers.purls or null) (flatten (attrs.srcs or [ ]))))
                 )
             );
 

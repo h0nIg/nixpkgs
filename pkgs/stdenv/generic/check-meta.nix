@@ -727,8 +727,17 @@ let
               if purl != null then
                 [ purl ]
               else
-                (attrs.src.meta.identifiers.purls
-                  or (builtins.filter (purl: purl != null) (map (derivation: derivation.meta.identifiers.purls or null) (flatten (attrs.srcs or [ ]))))
+                (attrs.src.meta.identifiers.purls or (
+                  # some of the srcs may not have a pURL
+                  builtins.filter (purl: purl != null) (
+                    map
+                      # get the pURLs from a single derivation
+                      (derivation: derivation.meta.identifiers.purls or null)
+
+                      # sometimes srcs is a single derivation
+                      (flatten (attrs.srcs or [ ]))
+                  )
+                )
                 )
             );
 

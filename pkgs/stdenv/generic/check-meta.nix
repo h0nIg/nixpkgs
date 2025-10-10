@@ -711,12 +711,23 @@ let
                 }
               ) possibleCPEPartsFuns;
 
+          # search for a pURL in the following order:
+          # - locally set
+          # - src.meta.pURL
+          # - srcs[].meta.pURL
           purlParts = attrs.meta.identifiers.purlParts or { };
           purl =
-            attrs.meta.identifiers.purl or attrs.src.meta.identifiers.purl or (
-              if purlParts ? type && purlParts ? spec then "pkg:${purlParts.type}/${purlParts.spec}" else null
+            if purlParts ? type && purlParts ? spec then
+              "pkg:${purlParts.type}/${purlParts.spec}"
+            else
+              (attrs.src.meta.identifiers.purl or null);
+          purls =
+            attrs.meta.identifiers.purls or (
+              if purl != null then
+                [ purl ]
+              else
+                (attrs.src.meta.identifiers.purls or (map (x: x.meta.identifiers.purls) (attrs.srcs or [ ])))
             );
-          purls = attrs.meta.identifiers.purls or attrs.src.meta.identifiers.purl or (optional (purl != null) purl);
 
           v1 = {
             inherit

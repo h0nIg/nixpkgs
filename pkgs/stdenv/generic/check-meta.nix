@@ -713,10 +713,10 @@ let
 
           purlParts = attrs.meta.identifiers.purlParts or { };
           purl =
-            attrs.meta.identifiers.purl or (
+            attrs.meta.identifiers.purl or attrs.src.meta.identifiers.purl or (
               if purlParts ? type && purlParts ? spec then "pkg:${purlParts.type}/${purlParts.spec}" else null
             );
-          purls = attrs.meta.identifiers.purls or (optional (purl != null) purl);
+          purls = attrs.meta.identifiers.purls or attrs.src.meta.identifiers.purl or (optional (purl != null) purl);
 
           v1 = {
             inherit

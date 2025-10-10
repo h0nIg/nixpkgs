@@ -416,7 +416,8 @@ let
         # default to python's platforms
         platforms = python.meta.platforms;
         isBuildPythonPackage = python.meta.platforms;
-        inherit (attrs.src.meta.identifiers or null) ;
+        ${if (attrs.src.meta.identifiers or null) != null then "identifiers" else null} =
+          attrs.src.meta.identifiers;
       }
       // meta;
     }

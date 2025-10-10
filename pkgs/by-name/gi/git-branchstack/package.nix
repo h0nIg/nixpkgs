@@ -5,14 +5,14 @@
 }:
 
 let
-  self = python3Packages.buildPythonApplication {
+  self = python3Packages.buildPythonApplication rec {
     pname = "git-branchstack";
     version = "0.2.0";
     format = "pyproject";
 
     src = fetchPypi {
       pname = "git-branchstack";
-      inherit (self) version;
+      inherit version;
       hash = "sha256-gja93LOcVCQ6l+Cygvsm+3uomvxtvUl6t23GIb/tKyQ=";
     };
 

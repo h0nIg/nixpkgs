@@ -726,7 +726,9 @@ let
               if purl != null then
                 [ purl ]
               else
-                (attrs.src.meta.identifiers.purls or (map (x: x.meta.identifiers.purls) (attrs.srcs or [ ])))
+                (attrs.src.meta.identifiers.purls
+                  or (filter (x: x != null) (map (x: x.meta.identifiers.purls or null) (attrs.srcs or [ ])))
+                )
             );
 
           v1 = {

@@ -993,17 +993,6 @@ rec {
 
   buildLayeredImageWithNixDb = args: buildLayeredImage (args // { includeNixDB = true; });
 
-  # @h0nIg: This is somehow optional but nice to have, I think... 
-  buildImageWithNixDbAndHostSignatures = args: buildImage (args // {
-    includeNixDB = true;
-    includeNixDBHostSignatures = true;
-  });
-
-  buildLayeredImageWithNixDbAndHostSignatures = args: buildLayeredImage (args // {
-    includeNixDB = true;
-    includeNixDBHostSignatures = true;
-  });
-
   # Arguments are documented in ../../../doc/build-helpers/images/dockertools.section.md
   streamLayeredImage = lib.makeOverridable (
     {

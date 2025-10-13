@@ -207,6 +207,11 @@ Similarly, if you encounter errors similar to `Error_Protocol ("certificate has 
 : Copy the host builder's signatures for the Nix store paths into the image. The main purpose is to allow   
   for signature verification inside the container. Requires includeNixDB to be true.
 
+  :::{.caution}
+  Using this creates an image which is reproduceable under the assumption that the host has the same set of signatures for the image dependencies.
+  May break reproducibility, once dependencies are built and not signed immediately.
+  :::
+
   _Default value:_ `false`
 
 `contents` **DEPRECATED**
@@ -646,6 +651,11 @@ This allows the function to produce reproducible images.
 
 : Copy the host builder's signatures for the Nix store paths into the image. The main purpose is to allow   
   for signature verification inside the container. Requires includeNixDB to be true.
+
+  :::{.caution}
+  Using this creates an image which is reproduceable under the assumption that the host has the same set of signatures for the image dependencies.
+  May break reproducibility, once dependencies are built and not signed immediately.
+  :::
 
   _Default value:_ `false`
 

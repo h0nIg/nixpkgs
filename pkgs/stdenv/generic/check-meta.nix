@@ -47,6 +47,18 @@ let
     toPretty
     ;
 
+  inherit (builtins)
+    getEnv
+    elem
+    concatStringsSep
+    map
+    getAttr
+    trace
+    trace
+    length
+    unsafeGetAttrPos
+    ;
+
   # If we're in hydra, we can dispense with the more verbose error
   # messages and make problems easier to spot.
   inHydra = config.inHydra or false;
@@ -57,11 +69,11 @@ let
   getNameWithVersion =
     attrs: attrs.name or ("${attrs.pname or "«name-missing»"}-${attrs.version or "«version-missing»"}");
 
-  allowUnfree = config.allowUnfree || builtins.getEnv "NIXPKGS_ALLOW_UNFREE" == "1";
+  allowUnfree = config.allowUnfree || getEnv "NIXPKGS_ALLOW_UNFREE" == "1";
 
   allowNonSource =
     let
-      envVar = builtins.getEnv "NIXPKGS_ALLOW_NONSOURCE";
+      envVar = getEnv "NIXPKGS_ALLOW_NONSOURCE";
     in
     if envVar != "" then envVar != "0" else config.allowNonSource or true;
 
@@ -92,10 +104,10 @@ let
 
   hasBlocklistedLicense = attrs: hasListedLicense blocklist attrs;
 
-  allowBroken = config.allowBroken || builtins.getEnv "NIXPKGS_ALLOW_BROKEN" == "1";
+  allowBroken = config.allowBroken || getEnv "NIXPKGS_ALLOW_BROKEN" == "1";
 
   allowUnsupportedSystem =
-    config.allowUnsupportedSystem || builtins.getEnv "NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM" == "1";
+    config.allowUnsupportedSystem || getEnv "NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM" == "1";
 
   isUnfree =
     licenses:
@@ -134,7 +146,7 @@ let
   # { pkgs, ... }:
   # {
   #   allowBroken = false;
-  #   allowBrokenPredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [ "hello" ];
+  #   allowBrokenPredicate = pkg: elem (pkgs.lib.getName pkg) [ "hello" ];
   # }
   allowBrokenPredicate = config.allowBrokenPredicate or (x: false);
 
@@ -161,14 +173,14 @@ let
     attrs: hasUnfreeLicense attrs && !allowUnfree && !allowUnfreePredicate attrs;
 
   allowInsecureDefaultPredicate =
-    x: builtins.elem (getNameWithVersion x) (config.permittedInsecurePackages or [ ]);
+    x: elem (getNameWithVersion x) (config.permittedInsecurePackages or [ ]);
   allowInsecurePredicate = x: (config.allowInsecurePredicate or allowInsecureDefaultPredicate) x;
 
   hasAllowedInsecure =
     attrs:
     !(isMarkedInsecure attrs)
     || allowInsecurePredicate attrs
-    || builtins.getEnv "NIXPKGS_ALLOW_INSECURE" == "1";
+    || getEnv "NIXPKGS_ALLOW_INSECURE" == "1";
 
   isNonSource = sourceTypes: any (t: !t.isSource) sourceTypes;
 
@@ -229,7 +241,7 @@ let
   remediate_predicate = predicateConfigAttr: attrs: ''
 
     Alternatively you can configure a predicate to allow specific packages:
-      { nixpkgs.config.${predicateConfigAttr} = pkg: builtins.elem (lib.getName pkg) [
+      { nixpkgs.config.${predicateConfigAttr} = pkg: elem (lib.getName pkg) [
           "${lib.getName attrs}"
         ];
       }
@@ -300,16 +312,16 @@ let
     let
       expectedOutputs = attrs.meta.outputsToInstall or [ ];
       actualOutputs = attrs.outputs or [ "out" ];
-      missingOutputs = builtins.filter (output: !builtins.elem output actualOutputs) expectedOutputs;
+      missingOutputs = filter (output: !elem output actualOutputs) expectedOutputs;
     in
     ''
-      The package ${getNameWithVersion attrs} has set meta.outputsToInstall to: ${builtins.concatStringsSep ", " expectedOutputs}
+      The package ${getNameWithVersion attrs} has set meta.outputsToInstall to: ${concatStringsSep ", " expectedOutputs}
 
-      however ${getNameWithVersion attrs} only has the outputs: ${builtins.concatStringsSep ", " actualOutputs}
+      however ${getNameWithVersion attrs} only has the outputs: ${concatStringsSep ", " actualOutputs}
 
       and is missing the following outputs:
 
-      ${concatStrings (builtins.map (output: "  - ${output}\n") missingOutputs)}
+      ${concatStrings (map (output: "  - ${output}\n") missingOutputs)}
     '';
 
   handleEvalIssue =
@@ -327,7 +339,7 @@ let
             Package ‘${getNameWithVersion attrs}’ in ${pos_str meta} ${errormsg}, refusing to evaluate.
 
           ''
-          + (builtins.getAttr reason remediation) attrs;
+          + (getAttr reason remediation) attrs;
 
       handler = if config ? handleEvalIssue then config.handleEvalIssue reason else throw;
     in
@@ -340,7 +352,7 @@ let
       errormsg ? "",
     }:
     let
-      remediationMsg = (builtins.getAttr reason remediation) attrs;
+      remediationMsg = (getAttr reason remediation) attrs;
       msg =
         if inHydra then
           "Warning while evaluating ${getNameWithVersion attrs}: «${reason}»: ${errormsg}"
@@ -349,7 +361,7 @@ let
           + (optionalString (remediationMsg != "") "\n${remediationMsg}");
       isEnabled = findFirst (x: x == reason) null showWarnings;
     in
-    if isEnabled != null then builtins.trace msg true else true;
+    if isEnabled != null then trace msg true else true;
 
   metaTypes =
     let
@@ -476,9 +488,9 @@ let
     let
       expectedOutputs = attrs.meta.outputsToInstall or [ ];
       actualOutputs = attrs.outputs or [ "out" ];
-      missingOutputs = builtins.filter (output: !builtins.elem output actualOutputs) expectedOutputs;
+      missingOutputs = filter (output: !elem output actualOutputs) expectedOutputs;
     in
-    if config.checkMeta then builtins.length missingOutputs > 0 else false;
+    if config.checkMeta then length missingOutputs > 0 else false;
 
   # Check if a derivation is valid, that is whether it passes checks for
   # e.g brokenness or license.
@@ -623,9 +635,9 @@ let
     }:
     let
       outputs = attrs.outputs or [ "out" ];
-      hasOutput = out: builtins.elem out outputs;
-      maintainersPosition = builtins.unsafeGetAttrPos "maintainers" (attrs.meta or { });
-      teamsPosition = builtins.unsafeGetAttrPos "teams" (attrs.meta or { });
+      hasOutput = out: elem out outputs;
+      maintainersPosition = unsafeGetAttrPos "maintainers" (attrs.meta or { });
+      teamsPosition = unsafeGetAttrPos "teams" (attrs.meta or { });
     in
     {
       # `name` derivation attribute includes cross-compilation cruft,
@@ -729,7 +741,7 @@ let
               else
                 (attrs.src.meta.identifiers.purls or (
                   # some of the srcs may not have a pURL
-                  builtins.filter (purl: purl != null) (
+                  filter (purl: purl != null) (
                     map
                       # get the pURLs from a single derivation
                       (derivation: derivation.meta.identifiers.purls or null)

@@ -43,7 +43,6 @@ lib.makeOverridable (
     );
     baseUrl = "https://${githubBase}/${owner}/${repo}";
     newMeta =
-    newMeta =
       meta
       // {
         homepage = meta.homepage or baseUrl;

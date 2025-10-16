@@ -642,7 +642,7 @@ in
             "${nonRootTestImage} | docker load",
             "docker run --rm ${chownTestImage.imageName} | diff /dev/stdin <(echo 12345:12345)"
         )
-    
+
     with subtest("includeNixDBHostSignatures allows store verification"):
         with subtest("for buildImage"):
             docker.succeed("${imageWithoutSigs} | docker load")

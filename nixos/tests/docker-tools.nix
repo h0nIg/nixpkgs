@@ -90,7 +90,10 @@ let
   imageWithoutSigs = pkgs.dockerTools.buildImage {
     name = "image-without-sigs";
     tag = "latest";
-    contents = [ pkgs.nix pkgs.hello ];
+    contents = [
+      pkgs.nix
+      pkgs.hello
+    ];
     includeNixDB = true;
     includeNixDBHostSignatures = false;
   };
@@ -98,7 +101,10 @@ let
   imageWithSigs = pkgs.dockerTools.buildImage {
     name = "image-with-sigs";
     tag = "latest";
-    contents = [ pkgs.nix pkgs.hello ];
+    contents = [
+      pkgs.nix
+      pkgs.hello
+    ];
     includeNixDB = true;
     includeNixDBHostSignatures = true;
   };
@@ -106,7 +112,10 @@ let
   layeredImageWithoutSigs = pkgs.dockerTools.streamLayeredImage {
     name = "layered-image-without-sigs";
     tag = "latest";
-    contents = [ pkgs.nix pkgs.hello ];
+    contents = [
+      pkgs.nix
+      pkgs.hello
+    ];
     includeNixDB = true;
     includeNixDBHostSignatures = false;
   };
@@ -114,7 +123,10 @@ let
   layeredImageWithSigs = pkgs.dockerTools.streamLayeredImage {
     name = "layered-image-with-sigs";
     tag = "latest";
-    contents = [ pkgs.nix pkgs.hello ];
+    contents = [
+      pkgs.nix
+      pkgs.hello
+    ];
     includeNixDB = true;
     includeNixDBHostSignatures = true;
   };

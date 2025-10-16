@@ -86,6 +86,22 @@ let
       ];
     };
   };
+
+  imageWithSigs = pkgs.dockerTools.buildImage {
+    name = "image-with-sigs";
+    tag = "latest";
+    contents = [ pkgs.hello ];
+    includeNixDB = true;
+    includeNixDBHostSignatures = true;
+  };
+
+  imageWithoutSigs = pkgs.dockerTools.buildImage {
+    name = "image-without-sigs";
+    tag = "latest";
+    contents = [ pkgs.hello ];
+    includeNixDB = true;
+    includeNixDBHostSignatures = false;
+  };
 in
 {
   name = "docker-tools";

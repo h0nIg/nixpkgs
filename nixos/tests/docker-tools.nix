@@ -102,6 +102,22 @@ let
     includeNixDB = true;
     includeNixDBHostSignatures = true;
   };
+
+  layeredImageWithoutSigs = pkgs.dockerTools.streamLayeredImage {
+    name = "layered-image-without-sigs";
+    tag = "latest";
+    contents = [ pkgs.hello ];
+    includeNixDB = true;
+    includeNixDBHostSignatures = false;
+  };
+
+  layeredImageWithSigs = pkgs.dockerTools.streamLayeredImage {
+    name = "layered-image-with-sigs";
+    tag = "latest";
+    contents = [ pkgs.hello ];
+    includeNixDB = true;
+    includeNixDBHostSignatures = true;
+  };
 in
 {
   name = "docker-tools";
@@ -616,13 +632,22 @@ in
         )
     
     with subtest("includeNixDBHostSignatures copies host signatures"):
-        docker.succeed("docker load --input='${imageWithoutSigs}'")
-        docker.succeed("docker run --rm ${imageWithoutSigs.imageName} sh -c 'test -z \"$(ls -A /nix/var/nix/db/sigs)\"'")
-        docker.succeed("docker rmi ${imageWithoutSigs.imageName}")
+        with subtest("for buildImage"):
+            docker.succeed("docker load --input='${imageWithoutSigs}'")
+            docker.succeed("docker run --rm ${imageWithoutSigs.imageName} sh -c 'test -z \"$(ls -A /nix/var/nix/db/sigs)\"'")
+            docker.succeed("docker rmi ${imageWithoutSigs.imageName}")
 
-        docker.succeed("docker load --input='${imageWithSigs}'")
-        docker.succeed("docker run --rm ${imageWithSigs.imageName} sh -c 'test -n \"$(ls -A /nix/var/nix/db/sigs)\"'")
-        docker.succeed("docker rmi ${imageWithSigs.imageName}")
+            docker.succeed("docker load --input='${imageWithSigs}'")
+            docker.succeed("docker run --rm ${imageWithSigs.imageName} sh -c 'test -n \"$(ls -A /nix/var/nix/db/sigs)\"'")
+            docker.succeed("docker rmi ${imageWithSigs.imageName}")
 
+        with subtest("for streamLayeredImage"):
+            docker.succeed("${layeredImageWithoutSigs} | docker load")
+            docker.succeed("docker run --rm ${layeredImageWithoutSigs.imageName} sh -c 'test -z \"$(ls -A /nix/var/nix/db/sigs)\"'")
+            docker.succeed("docker rmi ${layeredImageWithoutSigs.imageName}")
+
+            docker.succeed("${layeredImageWithSigs} | docker load")
+            docker.succeed("docker run --rm ${layeredImageWithSigs.imageName} sh -c 'test -n \"$(ls -A /nix/var/nix/db/sigs)\"'")
+            docker.succeed("docker rmi ${layeredImageWithSigs.imageName}")
   '';
 }

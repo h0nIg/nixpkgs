@@ -90,7 +90,7 @@ let
   imageWithoutSigs = pkgs.dockerTools.buildImage {
     name = "image-without-sigs";
     tag = "latest";
-    contents = [ pkgs.hello ];
+    contents = [ pkgs.nix pkgs.hello ];
     includeNixDB = true;
     includeNixDBHostSignatures = false;
   };
@@ -98,7 +98,7 @@ let
   imageWithSigs = pkgs.dockerTools.buildImage {
     name = "image-with-sigs";
     tag = "latest";
-    contents = [ pkgs.hello ];
+    contents = [ pkgs.nix pkgs.hello ];
     includeNixDB = true;
     includeNixDBHostSignatures = true;
   };
@@ -106,7 +106,7 @@ let
   layeredImageWithoutSigs = pkgs.dockerTools.streamLayeredImage {
     name = "layered-image-without-sigs";
     tag = "latest";
-    contents = [ pkgs.hello ];
+    contents = [ pkgs.nix pkgs.hello ];
     includeNixDB = true;
     includeNixDBHostSignatures = false;
   };
@@ -114,7 +114,7 @@ let
   layeredImageWithSigs = pkgs.dockerTools.streamLayeredImage {
     name = "layered-image-with-sigs";
     tag = "latest";
-    contents = [ pkgs.hello ];
+    contents = [ pkgs.nix pkgs.hello ];
     includeNixDB = true;
     includeNixDBHostSignatures = true;
   };
@@ -631,23 +631,23 @@ in
             "docker run --rm ${chownTestImage.imageName} | diff /dev/stdin <(echo 12345:12345)"
         )
     
-    with subtest("includeNixDBHostSignatures copies host signatures"):
+    with subtest("includeNixDBHostSignatures allows store verification"):
         with subtest("for buildImage"):
-            docker.succeed("docker load --input='${imageWithoutSigs}'")
-            docker.succeed("docker run --rm ${imageWithoutSigs.imageName} sh -c 'test -z \"$(ls -A /nix/var/nix/db/sigs)\"'")
+            docker.succeed("${imageWithoutSigs} | docker load")
+            docker.fail("docker run --rm ${imageWithoutSigs.imageName} ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
             docker.succeed("docker rmi ${imageWithoutSigs.imageName}")
 
-            docker.succeed("docker load --input='${imageWithSigs}'")
-            docker.succeed("docker run --rm ${imageWithSigs.imageName} sh -c 'test -n \"$(ls -A /nix/var/nix/db/sigs)\"'")
+            docker.succeed("${imageWithSigs} | docker load")
+            docker.succeed("docker run --rm ${imageWithSigs.imageName} ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
             docker.succeed("docker rmi ${imageWithSigs.imageName}")
 
         with subtest("for streamLayeredImage"):
             docker.succeed("${layeredImageWithoutSigs} | docker load")
-            docker.succeed("docker run --rm ${layeredImageWithoutSigs.imageName} sh -c 'test -z \"$(ls -A /nix/var/nix/db/sigs)\"'")
+            docker.fail("docker run --rm ${layeredImageWithoutSigs.imageName} ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
             docker.succeed("docker rmi ${layeredImageWithoutSigs.imageName}")
 
             docker.succeed("${layeredImageWithSigs} | docker load")
-            docker.succeed("docker run --rm ${layeredImageWithSigs.imageName} sh -c 'test -n \"$(ls -A /nix/var/nix/db/sigs)\"'")
+            docker.succeed("docker run --rm ${layeredImageWithSigs.imageName} ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
             docker.succeed("docker rmi ${layeredImageWithSigs.imageName}")
   '';
 }

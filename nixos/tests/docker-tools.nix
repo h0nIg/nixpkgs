@@ -87,20 +87,20 @@ let
     };
   };
 
-  imageWithSigs = pkgs.dockerTools.buildImage {
-    name = "image-with-sigs";
-    tag = "latest";
-    contents = [ pkgs.hello ];
-    includeNixDB = true;
-    includeNixDBHostSignatures = true;
-  };
-
   imageWithoutSigs = pkgs.dockerTools.buildImage {
     name = "image-without-sigs";
     tag = "latest";
     contents = [ pkgs.hello ];
     includeNixDB = true;
     includeNixDBHostSignatures = false;
+  };
+
+  imageWithSigs = pkgs.dockerTools.buildImage {
+    name = "image-with-sigs";
+    tag = "latest";
+    contents = [ pkgs.hello ];
+    includeNixDB = true;
+    includeNixDBHostSignatures = true;
   };
 in
 {
@@ -614,5 +614,15 @@ in
             "${nonRootTestImage} | docker load",
             "docker run --rm ${chownTestImage.imageName} | diff /dev/stdin <(echo 12345:12345)"
         )
+    
+    with subtest("includeNixDBHostSignatures copies host signatures"):
+        docker.succeed("docker load --input='${imageWithoutSigs}'")
+        docker.succeed("docker run --rm ${imageWithoutSigs.imageName} sh -c 'test -z \"$(ls -A /nix/var/nix/db/sigs)\"'")
+        docker.succeed("docker rmi ${imageWithoutSigs.imageName}")
+
+        docker.succeed("docker load --input='${imageWithSigs}'")
+        docker.succeed("docker run --rm ${imageWithSigs.imageName} sh -c 'test -n \"$(ls -A /nix/var/nix/db/sigs)\"'")
+        docker.succeed("docker rmi ${imageWithSigs.imageName}")
+
   '';
 }

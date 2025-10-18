@@ -130,6 +130,10 @@ let
     includeNixDB = true;
     includeNixDBHostSignatures = true;
   };
+
+  signingKeyForSignatureTests = pkgs.runCommand "signingKey" { } ''
+    ${pkgs.nix}/bin/nix-store --generate-binary-cache-key key $out /dev/null
+  '';
 in
 {
   name = "docker-tools";
@@ -148,6 +152,8 @@ in
           diskSize = 3072;
           docker.enable = true;
         };
+
+        nix.settings.secret-key-files = signingKeyForSignatureTests;
       };
   };
 

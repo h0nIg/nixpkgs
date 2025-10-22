@@ -90,7 +90,7 @@ let
   imageWithoutSigs = pkgs.dockerTools.buildImage {
     name = "image-without-sigs";
     tag = "latest";
-    contents = [
+    copyToRoot = [
       pkgs.nix
       pkgs.hello
     ];
@@ -101,7 +101,7 @@ let
   imageWithSigs = pkgs.dockerTools.buildImage {
     name = "image-with-sigs";
     tag = "latest";
-    contents = [
+    copyToRoot = [
       pkgs.nix
       pkgs.hello
     ];

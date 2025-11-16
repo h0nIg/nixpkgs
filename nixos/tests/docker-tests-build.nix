@@ -2,10 +2,12 @@ let
   pkgs = import ../../.. { };
   inherit (pkgs.dockerTools)
     buildImage
-    streamLayeredImage;
+    streamLayeredImage
+    ;
   inherit (pkgs)
     nix
-    hello;
+    hello
+    ;
 
 in
 {

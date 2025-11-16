@@ -76,10 +76,6 @@ let
       ${buildPackages.nix}/bin/nix-store --load-db < ${
         closureInfo { rootPaths = contentsList; }
       }/registration
-      mkdir -p nix/var/nix/gcroots/docker/
-      for i in ${lib.concatStringsSep " " contentsList}; do
-      ln -s $i nix/var/nix/gcroots/docker/$(basename $i)
-      done;
       ${lib.optionalString includeNixDBHostSignatures ''
         # copy signatures from building system (-s "local?read-only=true") into "NIX_REMOTE=local?root=$PWD"
         # readonly store is required to avoid write operations which might fail due to missing privileges
@@ -87,6 +83,10 @@ let
       ''}
       # Reset registration times to make the image reproducible
       ${buildPackages.sqlite}/bin/sqlite3 nix/var/nix/db/db.sqlite "UPDATE ValidPaths SET registrationTime = ''${SOURCE_DATE_EPOCH}"
+      mkdir -p nix/var/nix/gcroots/docker/
+      for i in ${lib.concatStringsSep " " contentsList}; do
+      ln -s $i nix/var/nix/gcroots/docker/$(basename $i)
+      done;
     '';
 
   # The OCI Image specification recommends that configurations use values listed

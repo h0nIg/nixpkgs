@@ -1,5 +1,5 @@
 let
-  pkgs = import ../../.. { };
+  pkgs = import ../.. { };
   inherit (pkgs.dockerTools)
     buildImage
     streamLayeredImage

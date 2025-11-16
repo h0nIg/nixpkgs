@@ -129,7 +129,7 @@ in
           hashed-mirrors = null;
           connect-timeout = 1;
 
-          sandbox = false;
+          sandbox = "relaxed";
           secret-key-files = signingKeyForSignatureTests;
         };
 

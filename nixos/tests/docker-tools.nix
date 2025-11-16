@@ -87,50 +87,6 @@ let
     };
   };
 
-  imageWithoutSigs = pkgs.dockerTools.buildImage {
-    name = "image-without-sigs";
-    tag = "latest";
-    copyToRoot = [
-      pkgs.nix
-      pkgs.hello
-    ];
-    includeNixDB = true;
-    includeNixDBHostSignatures = false;
-  };
-
-  imageWithSigs = pkgs.dockerTools.buildImage {
-    name = "image-with-sigs";
-    tag = "latest";
-    copyToRoot = [
-      pkgs.nix
-      pkgs.hello
-    ];
-    includeNixDB = true;
-    includeNixDBHostSignatures = true;
-  };
-
-  layeredImageWithoutSigs = pkgs.dockerTools.streamLayeredImage {
-    name = "layered-image-without-sigs";
-    tag = "latest";
-    contents = [
-      pkgs.nix
-      pkgs.hello
-    ];
-    includeNixDB = true;
-    includeNixDBHostSignatures = false;
-  };
-
-  layeredImageWithSigs = pkgs.dockerTools.streamLayeredImage {
-    name = "layered-image-with-sigs";
-    tag = "latest";
-    contents = [
-      pkgs.nix
-      pkgs.hello
-    ];
-    includeNixDB = true;
-    includeNixDBHostSignatures = true;
-  };
-
   signingKeyForSignatureTests = pkgs.runCommand "signingKey" { } ''
     ${pkgs.nix}/bin/nix-store --generate-binary-cache-key key $out /dev/null
   '';
@@ -651,21 +607,25 @@ in
 
     with subtest("includeNixDBHostSignatures allows store verification"):
         with subtest("for buildImage"):
-            docker.succeed("${imageWithoutSigs} | docker load")
-            docker.fail("docker run --rm ${imageWithoutSigs.imageName} ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
-            docker.succeed("docker rmi ${imageWithoutSigs.imageName}")
+            docker.succeed("nix-build --option sandbox false -A imageWithoutSigs -o imageWithoutSigs ${pkgs.path}/nixos/tests/docker-tools-build.nix")
+            docker.succeed("cat ./imageWithoutSigs | docker load")
+            docker.fail("docker run --rm image-without-sigs:latest ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
+            docker.succeed("docker image rm image-without-sigs:latest")
 
-            docker.succeed("${imageWithSigs} | docker load")
-            docker.succeed("docker run --rm ${imageWithSigs.imageName} ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
-            docker.succeed("docker rmi ${imageWithSigs.imageName}")
+            docker.succeed("nix-build --option sandbox false -A imageWithSigs -o imageWithSigs ${pkgs.path}/nixos/tests/docker-tools-build.nix")
+            docker.succeed("cat ./imageWithSigs | docker load")
+            docker.fail("docker run --rm image-with-sigs:latest ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
+            docker.succeed("docker image rm image-with-sigs:latest")
 
         with subtest("for streamLayeredImage"):
-            docker.succeed("${layeredImageWithoutSigs} | docker load")
-            docker.fail("docker run --rm ${layeredImageWithoutSigs.imageName} ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
-            docker.succeed("docker rmi ${layeredImageWithoutSigs.imageName}")
+            docker.succeed("nix-build --option sandbox false -A layeredImageWithoutSigs -o layeredImageWithoutSigs ${pkgs.path}/nixos/tests/docker-tools-build.nix")
+            docker.succeed("./layeredImageWithoutSigs | docker load")
+            docker.fail("docker run --rm layered-image-without-sigs:latest ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
+            docker.succeed("docker image rm layered-image-without-sigs:latest")
 
-            docker.succeed("${layeredImageWithSigs} | docker load")
-            docker.succeed("docker run --rm ${layeredImageWithSigs.imageName} ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
-            docker.succeed("docker rmi ${layeredImageWithSigs.imageName}")
+            docker.succeed("nix-build --option sandbox false -A layeredImageWithSigs -o layeredImageWithSigs ${pkgs.path}/nixos/tests/docker-tools-build.nix")
+            docker.succeed("./layeredImageWithSigs | docker load")
+            docker.fail("docker run --rm layered-image-with-sigs:latest ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
+            docker.succeed("docker image rm layered-image-with-sigs:latest")
   '';
 }

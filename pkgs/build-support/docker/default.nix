@@ -1132,6 +1132,9 @@ rec {
             | cut -f 1 -d ' ' \
             > $out/checksum
         '';
+
+        # enable host signature inclusion even with relaxed sandbox
+        __noChroot = includeNixDBHostSignatures;
       };
 
       layersJsonFile = buildPackages.dockerMakeLayers {

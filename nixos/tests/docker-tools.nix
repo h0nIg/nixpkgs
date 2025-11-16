@@ -86,6 +86,54 @@ let
       ];
     };
   };
+
+  imageWithoutSigs = pkgs.dockerTools.buildImage {
+    name = "image-without-sigs";
+    tag = "latest";
+    copyToRoot = [
+      pkgs.nix
+      pkgs.hello
+    ];
+    includeNixDB = true;
+    includeNixDBHostSignatures = false;
+  };
+
+  imageWithSigs = pkgs.dockerTools.buildImage {
+    name = "image-with-sigs";
+    tag = "latest";
+    copyToRoot = [
+      pkgs.nix
+      pkgs.hello
+    ];
+    includeNixDB = true;
+    includeNixDBHostSignatures = true;
+  };
+
+  layeredImageWithoutSigs = pkgs.dockerTools.streamLayeredImage {
+    name = "layered-image-without-sigs";
+    tag = "latest";
+    contents = [
+      pkgs.nix
+      pkgs.hello
+    ];
+    includeNixDB = true;
+    includeNixDBHostSignatures = false;
+  };
+
+  layeredImageWithSigs = pkgs.dockerTools.streamLayeredImage {
+    name = "layered-image-with-sigs";
+    tag = "latest";
+    contents = [
+      pkgs.nix
+      pkgs.hello
+    ];
+    includeNixDB = true;
+    includeNixDBHostSignatures = true;
+  };
+
+  signingKeyForSignatureTests = pkgs.runCommand "signingKey" { } ''
+    ${pkgs.nix}/bin/nix-store --generate-binary-cache-key key $out /dev/null
+  '';
 in
 {
   name = "docker-tools";
@@ -104,6 +152,8 @@ in
           diskSize = 3072;
           docker.enable = true;
         };
+
+        nix.settings.secret-key-files = signingKeyForSignatureTests;
       };
   };
 
@@ -598,5 +648,24 @@ in
             "${nonRootTestImage} | docker load",
             "docker run --rm ${chownTestImage.imageName} | diff /dev/stdin <(echo 12345:12345)"
         )
+
+    with subtest("includeNixDBHostSignatures allows store verification"):
+        with subtest("for buildImage"):
+            docker.succeed("${imageWithoutSigs} | docker load")
+            docker.fail("docker run --rm ${imageWithoutSigs.imageName} ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
+            docker.succeed("docker rmi ${imageWithoutSigs.imageName}")
+
+            docker.succeed("${imageWithSigs} | docker load")
+            docker.succeed("docker run --rm ${imageWithSigs.imageName} ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
+            docker.succeed("docker rmi ${imageWithSigs.imageName}")
+
+        with subtest("for streamLayeredImage"):
+            docker.succeed("${layeredImageWithoutSigs} | docker load")
+            docker.fail("docker run --rm ${layeredImageWithoutSigs.imageName} ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
+            docker.succeed("docker rmi ${layeredImageWithoutSigs.imageName}")
+
+            docker.succeed("${layeredImageWithSigs} | docker load")
+            docker.succeed("docker run --rm ${layeredImageWithSigs.imageName} ${pkgs.nix}/bin/nix store verify --all --sigs-needed 1")
+            docker.succeed("docker rmi ${layeredImageWithSigs.imageName}")
   '';
 }

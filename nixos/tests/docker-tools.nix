@@ -133,7 +133,7 @@ in
           secret-key-files = signingKeyForSignatureTests;
         };
 
-        # include everything to build the image without signatures
+        # include everything to build the image with & without signatures
         environment.systemPackages = [
           (pkgs.linkFarmFromDrvs "additional-packages" [
             signatureTests.imageWithoutSigs

@@ -61,6 +61,7 @@ let
             setuptools
           ];
           postPatch = null;
+          patches = []; # CVE patches which are just for 2.*
           src = prev.src.override {
             inherit version;
             hash = "sha256-+OzBu6VmdBNFfFKauVW/jGe0XbeZ0VkGYmFxnjKFgKA=";

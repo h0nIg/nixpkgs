@@ -40,7 +40,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "go-gitea";
     repo = "gitea";
-    tag = "v${gitea.version}";
+    tag = "v${version}";
     hash = "sha256-djIL/sLmScBLLks76zKxxKgEFZ1nK2d1Fleupg7voSA=";
   };
 

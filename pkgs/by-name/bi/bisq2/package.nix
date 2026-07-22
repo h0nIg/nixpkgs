@@ -13,8 +13,6 @@
   zip,
   gnupg,
   coreutils,
-  gnugrep,
-  gnused,
 
   # Used by the bundled webcam-app
   libv4l,
@@ -30,18 +28,12 @@ let
 
   jdk = zulu25.override { enableJavaFX = true; };
 
-  argumentFile = builtins.toFile "app.args" ''
-    -Djpackage.app-version=${version}
-    -classpath
-    @out@/lib/app/desktop-app-launcher.jar:@classpath@
-  '';
-
   bisq-launcher =
     args:
     writeShellScript "bisq-launcher" ''
       rm -fR $HOME/.local/share/Bisq2/tor
 
-      exec "${lib.getExe jdk}" @@out@/lib/app.args ${args} bisq.desktop_app_launcher.DesktopAppLauncher "$@"
+      exec "${lib.getExe jdk}" -Djpackage.app-version=@version@ -classpath @out@/lib/app/desktop-app-launcher.jar:@out@/lib/app/* ${args} bisq.desktop_app_launcher.DesktopAppLauncher "$@"
     '';
 
   # A given release will be signed by either Alejandro Garcia or Henrik Jannsen
@@ -115,6 +107,10 @@ stdenv.mkDerivation (finalAttrs: {
   signature = fetchurl {
     url = "https://github.com/bisq-network/bisq2/releases/download/v${version}/Bisq-${version}.deb.asc";
     hash = "sha256-8FQ/HVWYENCbqtG4MD40QF6eQp3iUyqPNfZkRMAUc2A=";
+    meta.identifiers.purlParts = {
+      type = "github";
+      spec = "bisq-network/bisq2@${version}";
+    };
   };
 
   nativeBuildInputs = [
@@ -124,8 +120,6 @@ stdenv.mkDerivation (finalAttrs: {
     makeBinaryWrapper
     zip
     gnupg
-    gnugrep
-    gnused
   ];
 
   desktopItems = [
@@ -172,10 +166,6 @@ stdenv.mkDerivation (finalAttrs: {
 
     mkdir -p $out/lib $out/bin
     cp -r opt/bisq2/lib/app $out/lib
-
-    export classpath=$(ls -1 $out/lib/app/ | grep -v desktop-app-launcher.jar | sort | sed -e 's/^/@out@\/lib\/app\//g' | tr '\n' ':')
-    cp -L ${argumentFile} $out/lib/app.args
-    substituteAllInPlace $out/lib/app.args
 
     install -D -m 777 ${bisq-launcher ""} $out/bin/bisq2
     substituteAllInPlace $out/bin/bisq2

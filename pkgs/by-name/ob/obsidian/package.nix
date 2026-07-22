@@ -35,26 +35,34 @@ let
       "aarch64-linux"
       "aarch64-darwin"
     ];
-      meta.identifiers.purlParts = {
-        type = "github";
-        spec = "obsidianmd/obsidian-releases@${version}";
-      };
   };
 
   srcs = {
     x86_64-linux = fetchurl {
       url = "https://github.com/obsidianmd/obsidian-releases/releases/download/v${version}/obsidian-${version}.tar.gz";
       hash = "sha256-08vjdcv6QCTbGRC5gZFkn0E0xcSK7l5gtudxOYfc2yg=";
+      meta.identifiers.purlParts = {
+        type = "github";
+        spec = "obsidianmd/obsidian-releases@${version}";
+      };
     };
 
     aarch64-linux = fetchurl {
       url = "https://github.com/obsidianmd/obsidian-releases/releases/download/v${version}/obsidian-${version}-arm64.tar.gz";
       hash = "sha256-mKrDTR8TKjXPUG/D+hltWV3N7v3r1EsMxfqqehohDeI=";
+      meta.identifiers.purlParts = {
+        type = "github";
+        spec = "obsidianmd/obsidian-releases@${version}";
+      };
     };
 
     aarch64-darwin = fetchurl {
       url = "https://github.com/obsidianmd/obsidian-releases/releases/download/v${version}/Obsidian-${version}.dmg";
       hash = "sha256-BdqlT14aRFj3XaKfj6qhfo43rhaZhDJTf2dMYm25m84=";
+      meta.identifiers.purlParts = {
+        type = "github";
+        spec = "obsidianmd/obsidian-releases@${version}";
+      };
     };
   };
 
@@ -67,9 +75,8 @@ let
   };
 
   desktopItem = makeDesktopItem {
-    name = "md.obsidian.Obsidian";
+    name = "obsidian";
     desktopName = "Obsidian";
-    startupWMClass = "md.obsidian.Obsidian";
     comment = "Knowledge base";
     icon = "obsidian";
     exec = "obsidian %u";
@@ -142,14 +149,15 @@ let
       appname
       meta
       ;
+    sourceRoot = "${appname}.app";
     nativeBuildInputs = [
       makeWrapper
       _7zz
     ];
     installPhase = ''
       runHook preInstall
-      mkdir -p $out/{Applications,bin}
-      cp -R ${appname}.app $out/Applications
+      mkdir -p $out/{Applications/${appname}.app,bin}
+      cp -R . $out/Applications/${appname}.app
       makeWrapper $out/Applications/${appname}.app/Contents/MacOS/${appname} $out/bin/obsidian
       makeWrapper $out/Applications/${appname}.app/Contents/MacOS/obsidian-cli $out/bin/obsidian-cli
       runHook postInstall

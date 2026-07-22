@@ -21,10 +21,6 @@ let
     changelog = "https://github.com/TryQuiet/quiet/releases/tag/@quiet/desktop@${version}";
     license = lib.licenses.gpl3Only;
     maintainers = with lib.maintainers; [ kashw2 ];
-      meta.identifiers.purlParts = {
-        type = "github";
-        spec = "TryQuiet/quiet@${version}";
-      };
   };
 
   passthru.updateScript = writeShellScript "update-quiet" ''
@@ -41,12 +37,13 @@ let
   linux = appimageTools.wrapType2 {
     inherit pname version passthru;
 
-    # Quiet invokes pgrep and ps when managing its bundled Tor process. Without them, Tor startup fails with command not found.
-    extraPkgs = pkgs: [ pkgs.procps ];
-
     src = fetchurl {
       url = "https://github.com/TryQuiet/quiet/releases/download/@quiet/desktop@${version}/Quiet-${version}.AppImage";
       hash = "sha256-CRQoTc7BbsWeA+6+X5ZjPYHNT4dqd1xZb6b2P83kC90=";
+      meta.identifiers.purlParts = {
+        type = "github";
+        spec = "TryQuiet/quiet@${version}";
+      };
     };
 
     meta = meta // {
@@ -58,8 +55,12 @@ let
     inherit pname version passthru;
 
     src = fetchurl {
-      url = "https://github.com/TryQuiet/quiet/releases/download/@quiet/desktop@${version}/Quiet-${version}-arm64.dmg";
+      url = "https://github.com/TryQuiet/quiet/releases/download/@quiet/desktop@${version}/Quiet-${version}.dmg";
       hash = "sha256-G4Hj3YTsVX5Q3x4RnpXI6FPovm9fKXrfaUsZJ5EEUl8=";
+      meta.identifiers.purlParts = {
+        type = "github";
+        spec = "TryQuiet/quiet@${version}";
+      };
     };
 
     nativeBuildInputs = [

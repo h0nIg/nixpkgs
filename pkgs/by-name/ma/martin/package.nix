@@ -66,7 +66,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   patches = [ ./dont-build-webui.patch ];
 
-  cargoHash = "sha256-p5sAkmMTirMdmXnVb2aqGKhPYpX/uluvzq0uw4W1Bt8=";
+  cargoHash = "sha256-1VSErzoJ0Xdzefaq++8lCGnJfh7LyQCsWmq1xSl4iqg=";
 
   webui = buildNpmPackage {
     pname = "martin-ui";
@@ -80,7 +80,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
       ln -sf ${finalAttrs.src}/demo/frontend/public/favicon.ico public/_/assets/favicon.ico
     '';
 
-    npmDepsHash = "sha256-ngYv8qtpUEiseE//tDauzvTzWJxyN2QMYvyV6ObsSvc=";
+    npmDepsHash = "sha256-4BNjrYMAB8VBwCD4bREWw2vXwE9FCdfOFHsRgYNdiBI=";
 
     buildPhase = ''
       runHook preBuild

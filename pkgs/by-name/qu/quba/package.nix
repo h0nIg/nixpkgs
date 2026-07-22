@@ -27,18 +27,18 @@ let
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
     maintainers = with lib.maintainers; [ onny ];
     platforms = [ "x86_64-linux" ] ++ lib.platforms.darwin;
+  };
+
+  src = fetchurl {
+    url = "https://github.com/ZUGFeRD/quba-viewer/releases/download/v${version}/Quba-${version}.AppImage";
+    hash = "sha256-MjVsHFt/e2epN+lpYPTpbayT2Pq24mb5Pmf3HWLMqOU=";
     meta.identifiers.purlParts = {
       type = "github";
       spec = "ZUGFeRD/quba-viewer@${version}";
     };
   };
 
-  src = fetchurl {
-    url = "https://github.com/ZUGFeRD/quba-viewer/releases/download/v${version}/Quba-${version}.AppImage";
-    hash = "sha256-MjVsHFt/e2epN+lpYPTpbayT2Pq24mb5Pmf3HWLMqOU=";
-  };
-
-  appimageContents = appimageTools.extract { inherit pname version src; };
+  appimageContents = appimageTools.extractType2 { inherit pname version src; };
 
   linux = appimageTools.wrapType2 {
     inherit
@@ -68,9 +68,13 @@ let
     src = fetchurl {
       url = "https://github.com/ZUGFeRD/quba-viewer/releases/download/v${version}/Quba-${version}-universal.dmg";
       hash = "sha256-dVi4PAOEfIcqgP5ljqvN4X2y4fAuq1p5xDFBUI/YW6I=";
+      meta.identifiers.purlParts = {
+        type = "github";
+        spec = "ZUGFeRD/quba-viewer@${version}";
+      };
     };
 
-    unpackCmd = "7zz x -bd -sns- -snld -osource -xr'!*/Applications' $curSrc";
+    unpackCmd = "7zz x -bd -osource -xr'!*/Applications' -xr'!*com.apple.provenance' $curSrc";
 
     nativeBuildInputs = [ _7zz ];
 

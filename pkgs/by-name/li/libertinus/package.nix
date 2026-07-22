@@ -6,15 +6,12 @@
   zstd,
 }:
 
-stdenvNoCC.mkDerivation (finalAttrs: {
+stdenvNoCC.mkDerivation rec {
   pname = "libertinus";
   version = "7.051";
 
-  __structuredAttrs = true;
-  strictDeps = true;
-
   src = fetchurl {
-    url = "https://github.com/alerque/libertinus/releases/download/v${finalAttrs.version}/Libertinus-${finalAttrs.version}.tar.zst";
+    url = "https://github.com/alerque/libertinus/releases/download/v${version}/Libertinus-${version}.tar.zst";
     hash = "sha256-JQZ3ySnTd1owkTZDWUN5ryZKwu8oAQNaody+MLm+I6Y=";
     meta.identifiers.purlParts = {
       type = "github";
@@ -45,4 +42,4 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     maintainers = with lib.maintainers; [ siddharthist ];
     platforms = lib.platforms.all;
   };
-})
+}

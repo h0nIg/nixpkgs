@@ -163,7 +163,7 @@ python3.pkgs.buildPythonApplication (finalAttrs: {
   src = fetchFromGitHub {
     owner = "asciidoc-py";
     repo = "asciidoc-py";
-    tag = finalAttrs.version;
+    rev = finalAttrs.version;
     hash = "sha256-td3C7xTWfSzdo9Bbz0dHW2oPaCQYmUE9H2sUFfg5HH0=";
   };
 
@@ -331,8 +331,6 @@ python3.pkgs.buildPythonApplication (finalAttrs: {
 
     runHook postCheck
   '';
-
-  __structuredAttrs = true;
 
   meta = {
     description = "Text-based document generation system";

@@ -150,6 +150,8 @@ stdenv'.mkDerivation (finalAttrs: {
     # rev, not tag, on purpose: allows updating when new versions
     # are "stamped" a few days before release (tag).
     inherit hash rev;
+    # "refs/tags/REL_x_y" is not a valid PURL version; strip the prefix.
+    meta.identifiers.purlParts.spec = "postgres/postgres@${lib.removePrefix "refs/tags/" rev}";
   };
 
   __structuredAttrs = true;
